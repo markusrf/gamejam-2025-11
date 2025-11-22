@@ -8,7 +8,8 @@ func _physics_process(delta: float) -> void:
 	if(target == null):
 		return
 	
-	var desired_position = target.global_transform.origin + offset
+	var size_offset = offset * target.scale
+	var desired_position = target.global_transform.origin + size_offset
 	
 	#global_transform.origin = desired_position
 	global_transform.origin = global_transform.origin.lerp(desired_position, follow_speed * delta)
