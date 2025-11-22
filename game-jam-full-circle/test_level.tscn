@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bsewb6k4ttv85"]
+[gd_scene load_steps=10 format=3 uid="uid://bsewb6k4ttv85"]
 
 [ext_resource type="PackedScene" uid="uid://h1wklqb34osx" path="res://player.tscn" id="1_gojnm"]
 [ext_resource type="PhysicsMaterial" uid="uid://552lgl8tvuko" path="res://ground_material.tres" id="2_1c2mv"]
+[ext_resource type="PackedScene" uid="uid://bpaa2ub1y32gm" path="res://eatable_box.tscn" id="3_f7g2b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gojnm"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -57,3 +58,15 @@ mesh = SubResource("PlaneMesh_1c2mv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plane"]
 shape = SubResource("ConcavePolygonShape3D_f7g2b")
+
+[node name="Eatable" parent="." instance=ExtResource("3_f7g2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5451739, 0.5179465, 0.39819264)
+
+[node name="Eatable2" parent="." instance=ExtResource("3_f7g2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5451739, 1.8920434, 0.39819264)
+
+[node name="Eatable3" parent="." instance=ExtResource("3_f7g2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5451739, 0.72726846, 2.6159368)
+
+[node name="Eatable4" parent="." instance=ExtResource("3_f7g2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5451739, 0.6091516, -0.4501264)

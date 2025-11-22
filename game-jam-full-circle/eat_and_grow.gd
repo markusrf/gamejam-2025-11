@@ -9,6 +9,12 @@ func _on_body_entered(body):
 		
 		print("Hit a StaticBody3D:", body.name)
 		body.queue_free()
-		$Area3D.scale *=1.5
-		$CollisionShape3D.scale *=1.5
-		$MeshInstance3D.scale *=1.5
+		$Area3D.scale *=1.1
+		$CollisionShape3D.scale *=1.1
+		$MeshInstance3D.scale *=1.1
+		
+		for child in get_children():
+			#if child is CollisionShape3D:
+			print_debug(child)
+			child.scale *= 1.1
+			#

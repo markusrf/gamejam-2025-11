@@ -14,12 +14,3 @@ func _physics_process(delta: float) -> void:
 	global_transform.origin = global_transform.origin.lerp(desired_position, follow_speed * delta)
 	
 	look_at(target.global_transform.origin, Vector3.UP)
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
