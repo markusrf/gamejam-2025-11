@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://k4fx0jdpohy2"]
+
+[ext_resource type="PackedScene" uid="uid://h1wklqb34osx" path="res://player/player.tscn" id="1_yyjix"]
+[ext_resource type="PackedScene" uid="uid://bpaa2ub1y32gm" path="res://interactible/eatable_box.tscn" id="2_wdp7i"]
+[ext_resource type="PackedScene" uid="uid://c3wd5as71e0kx" path="res://interactible/pressure_plate.tscn" id="3_pvp88"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wdp7i"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_pvp88"]
+sky_material = SubResource("ProceduralSkyMaterial_wdp7i")
+
+[sub_resource type="Environment" id="Environment_nnxrk"]
+background_mode = 2
+sky = SubResource("Sky_pvp88")
+tonemap_mode = 2
+
+[sub_resource type="Curve3D" id="Curve3D_wdp7i"]
+closed = true
+_data = {
+"points": PackedVector3Array(1.4038119, 1.272296, -1.1759229, -1.4038119, -1.272296, 1.1759229, 5, 0, 5, 1.0791087, -0.037873715, 1.1199639, -1.0791087, 0.037873715, -1.1199639, -5, 0, 5, -4.5356126, 0.13949475, 0.91563845, 4.5356126, -0.13949475, -0.91563845, -5.893692, 0, -5, -1.7988448, 0.5471128, -1.4531584, 1.7988448, -0.5471128, 1.4531584, 4.9140034, -0.25465584, -4.7583256),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nnxrk")
+
+[node name="Player" parent="." instance=ExtResource("1_yyjix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.481354, 7.6877728, -0.62772083)
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+transform = Transform3D(3.16, 0, 0, 0, 3.16, 0, 0, 0, 3.16, 0, 0, 0)
+use_collision = true
+flip_faces = true
+inner_radius = 1.279
+outer_radius = 2.841
+sides = 14
+ring_sides = 9
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGTorus3D"]
+transform = Transform3D(0.8073881, 0.5900104, 0, -0.5900104, 0.8073881, 0, 0, 0, 0.99999404, 2.3560827, 1.1150743, 0.1018071)
+flip_faces = true
+radius = 0.334
+height = 2.349121
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGTorus3D/CSGCylinder3D"]
+transform = Transform3D(0.9999999, 2.9802322e-08, 0, -2.9802322e-08, 0.9999999, 0, 0, 0, 1, 0.11967111, 2.5422564, 0)
+flip_faces = true
+radius = 1.471
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGTorus3D/CSGCylinder3D/CSGSphere3D"]
+transform = Transform3D(1.6537303, -1.3104488, 0, 1.3104488, 1.6537303, 0, 0, 0, 2.11, 1.1072607, -0.5050082, 1.1135159)
+flip_faces = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGTorus3D/CSGCylinder3D/CSGSphere3D/CSGPolygon3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, 0.15741205, -0.1984595, -0.6030409)
+operation = 2
+flip_faces = true
+size = Vector3(1.6606445, 1, 1)
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_wdp7i")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.6421382, -0.4373932, 0.62955135, -1.4901077e-08, 0.82124186, 0.570572, -0.76658165, 0.36638874, -0.52735275, 5, 0, 5)
+
+[node name="Eatable6" parent="Path3D/PathFollow3D" instance=ExtResource("2_wdp7i")]
+transform = Transform3D(-0.40307754, -0.0076342, -0.038667217, -0.011813886, 0.40246296, 0.043691993, 0.037601575, 0.044612497, -0.40077537, 0, 0, 0)
+
+[node name="PathFollow3D2" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.45144665, 0.056159884, 0.8905228, 0.04828962, 0.99501216, -0.08722953, -0.8909842, 0.082383, 0.44648522, -4.6713595, -0.0253491, 5.2260003)
+progress = 10.0
+
+[node name="Eatable6" parent="Path3D/PathFollow3D2" instance=ExtResource("2_wdp7i")]
+transform = Transform3D(-0.3795982, 0.12588006, -0.063909255, 0.13531668, 0.37669477, -0.061769728, 0.040243737, -0.07924865, -0.39512676, 0, 0, 0)
+
+[node name="PathFollow3D3" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.8716579, 0.063370265, -0.48598915, -0.06269645, 0.9978721, 0.017665785, 0.48607674, 0.015071382, 0.8737795, -7.5672836, 0.054291125, -3.8711033)
+progress = 20.0
+
+[node name="Eatable6" parent="Path3D/PathFollow3D3" instance=ExtResource("2_wdp7i")]
+transform = Transform3D(-0.39825395, 0.03399861, 0.065290034, 0.020988274, 0.39674968, -0.07857635, -0.07055627, -0.07388404, -0.3919031, 0, 0, 0)
+
+[node name="PathFollow3D4" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.092732824, -0.0018909159, -0.99568254, -0.13215947, 0.9911694, 0.01042632, 0.98687476, 0.13255692, -0.092164196, 1.9611034, 0.028973337, -5.709304)
+progress = 30.0
+
+[node name="Eatable6" parent="Path3D/PathFollow3D4" instance=ExtResource("2_wdp7i")]
+transform = Transform3D(-0.4034981, -0.03424088, 0.00647131, -0.034547247, 0.40291303, -0.022194542, -0.004561439, -0.022664314, -0.40433964, 0, 0, 0)
+
+[node name="PressurePlate" parent="." instance=ExtResource("3_pvp88")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.471245, 6.734581, 2.726046)
