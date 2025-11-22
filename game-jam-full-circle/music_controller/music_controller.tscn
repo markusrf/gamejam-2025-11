@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://cy6gjblx2p1o8"]
+
+[ext_resource type="Script" uid="uid://ceatyaki17jgj" path="res://music_controller/music_controller.gd" id="1_aldte"]
+[ext_resource type="AudioStream" uid="uid://bjxwqlba8dyve" path="res://assets/audio/music/shaker-1.wav" id="3_jpco1"]
+[ext_resource type="AudioStream" uid="uid://b4xw5fuh7p0bi" path="res://assets/audio/music/shaker-2.wav" id="4_0srgu"]
+[ext_resource type="AudioStream" uid="uid://co8kut360dn8" path="res://assets/audio/music/conga-1.wav" id="5_b37nw"]
+[ext_resource type="AudioStream" uid="uid://bfwlneudpfjvm" path="res://assets/audio/music/bass-1.wav" id="6_4vpt2"]
+[ext_resource type="AudioStream" uid="uid://b3j72v7m5og68" path="res://assets/audio/music/lead-1.wav" id="7_segia"]
+[ext_resource type="AudioStream" uid="uid://bkguihwh4ua5v" path="res://assets/audio/music/lead-1-add-1.wav" id="8_ujk4y"]
+[ext_resource type="AudioStream" uid="uid://dkebl07vw48j2" path="res://assets/audio/music/lead-1-sub-1.wav" id="9_qer3x"]
+[ext_resource type="AudioStream" uid="uid://c3fdw72ng7s5y" path="res://assets/audio/music/lead-1-sub-2.wav" id="10_jmxsl"]
+
+[node name="MusicController" type="Node"]
+script = ExtResource("1_aldte")
+
+[node name="MusicTracks" type="Node" parent="."]
+
+[node name="Shaker1" type="AudioStreamPlayer" parent="MusicTracks"]
+stream = ExtResource("3_jpco1")
+bus = &"Music"
+
+[node name="Shaker2" type="AudioStreamPlayer" parent="MusicTracks"]
+stream = ExtResource("4_0srgu")
+bus = &"Music"
+
+[node name="Conga1" type="AudioStreamPlayer" parent="MusicTracks"]
+stream = ExtResource("5_b37nw")
+bus = &"Music"
+
+[node name="Bass1" type="AudioStreamPlayer" parent="MusicTracks"]
+stream = ExtResource("6_4vpt2")
+bus = &"Music"
+
+[node name="Lead1" type="AudioStreamPlayer" parent="MusicTracks"]
+stream = ExtResource("7_segia")
+bus = &"Music"
+
+[node name="Lead1Add1" type="AudioStreamPlayer" parent="MusicTracks"]
+stream = ExtResource("8_ujk4y")
+bus = &"Music"
+
+[node name="Lead1Sub1" type="AudioStreamPlayer" parent="MusicTracks"]
+stream = ExtResource("9_qer3x")
+bus = &"Music"
+
+[node name="Lead1Sub2" type="AudioStreamPlayer" parent="MusicTracks"]
+stream = ExtResource("10_jmxsl")
+bus = &"Music"

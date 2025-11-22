@@ -8,6 +8,7 @@ var player_size: float = 1.0
 @onready var area_3d: Area3D = $Area3D
 @onready var smoke: Node3D = $Smoke
 
+
 func _ready():
 	area_3d.connect("body_entered", _on_body_entered)
 	set_size()
@@ -68,6 +69,7 @@ func set_size() -> void:
 	print(player_size)
 	var newScale: float = (3.0*(player_size/(4.0*PI)))**(1.0/3.0)
 	var newVector: Vector3 = Vector3(newScale, newScale, newScale)
+	MusicController.player_size_changed(player_size)
 	
 	for child in get_children():
 		child.scale = newVector

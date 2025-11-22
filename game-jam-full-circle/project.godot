@@ -17,7 +17,7 @@ config/icon="res://assets/icon.svg"
 
 [autoload]
 
-MusicControlelr="*res://music_controller/music_controlelr.tscn"
+MusicController="*res://music_controller/music_controller.tscn"
 
 [global_group]
 

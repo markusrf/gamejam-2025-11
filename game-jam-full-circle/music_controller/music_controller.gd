@@ -14,11 +14,8 @@ func _ready():
 			child.stream_paused = true
 			child.volume_db = -80
 
-	set_instrument_volume("Shaker1", 0)
-	set_instrument_volume("Shaker2", 0)
-
 	play_all()
-	play_instrument_next_loop("Lead1")
+	init_music()
 
 func _process(delta):
 	if players.is_empty():
@@ -35,24 +32,32 @@ func _process(delta):
 
 
 
+
+### Core audio functions for controlling the music
+
 func on_loop_point():
+	# This function is called on the first frame that hapens
+	# after the music has looped
 	for action in scheduled_actions:
 		action.call()
 	scheduled_actions.clear()
 
+func get_audio_node(name: String):
+	return $MusicTracks.get_node(name)
+
 func play_instrument_next_loop(instrument_name: String):
 	scheduled_actions.append(func():
-		$MusicTracks.get_node(instrument_name).volume_db = 0
+		get_audio_node(instrument_name).volume_db = 0.0
 	)
 
 func mute_instrument_next_loop(instrument_name: String):
 	scheduled_actions.append(func():
-		$MusicTracks.get_node(instrument_name).volume_db = -80
+		get_audio_node(instrument_name).volume_db = -80.0
 	)
 
 func fade_in_instrument_next_loop(instrument_name: String, duration: float = 1.0) -> void:
 	scheduled_actions.append(func ():
-		var p := $MusicTracks.get_node(instrument_name) as AudioStreamPlayer
+		var p := get_audio_node(instrument_name) as AudioStreamPlayer
 		# make sure it's playing and muted
 		if not p.playing:
 			p.play(0)
@@ -62,7 +67,7 @@ func fade_in_instrument_next_loop(instrument_name: String, duration: float = 1.0
 
 func fade_out_instrument_next_loop(instrument_name: String, duration: float = 1.0) -> void:
 	scheduled_actions.append(func ():
-		var p := $MusicTracks.get_node(instrument_name) as AudioStreamPlayer
+		var p := get_audio_node(instrument_name) as AudioStreamPlayer
 		# make sure it's playing and muted
 		if not p.playing:
 			p.play(0)
@@ -80,8 +85,18 @@ func stop_all():
 	for p in players:
 		p.stop()
 
+func mute_all():
+	for p in players:
+		p.volume_db = -80.0
+
+func mute_all_next_loop():
+	for p in players:
+		scheduled_actions.append(func():
+			p.volume_db = -80.0
+		)
+
 func set_instrument_volume(name: String, volume_db: float):
-	var p = $MusicTracks.get_node(name)
+	var p = get_audio_node(name)
 	p.volume_db = volume_db
 
 func fade_in(player: AudioStreamPlayer, duration: float = 1.0) -> void:
@@ -95,8 +110,35 @@ func fade_out(player: AudioStreamPlayer, duration: float = 1.0) -> void:
 	var tween := create_tween()
 	tween.tween_property(player, "volume_db", -80.0, duration)
 
-func _fade_in(player: AudioStreamPlayer, speed := 2.0):
-	player.volume_db = lerp(player.volume_db, 0.0, speed * get_process_delta_time())
 
-func _fade_out(player: AudioStreamPlayer, speed := 2.0):
-	player.volume_db = lerp(player.volume_db, -80.0, speed * get_process_delta_time())
+
+
+
+### Game logic functions affecting the music
+
+func init_music():
+	set_instrument_volume("Shaker1", 0)
+	set_instrument_volume("Shaker2", 0)
+	play_instrument_next_loop("Lead1Add1")
+
+func player_size_changed(new_size):
+	mute_all_next_loop()
+	play_instrument_next_loop("Shaker1")
+	play_instrument_next_loop("Shaker2")
+
+	if new_size < 5.0:
+		play_instrument_next_loop("Lead1Add1")
+
+	if new_size >= 5.0 and new_size < 10.0:
+		play_instrument_next_loop("Conga1")
+		play_instrument_next_loop("Lead1")
+
+	if new_size >= 10.0 and new_size < 20.0:
+		play_instrument_next_loop("Conga1")
+		play_instrument_next_loop("Bass1")
+		play_instrument_next_loop("Lead1Sub1")
+
+	if new_size >= 20.0:
+		play_instrument_next_loop("Conga1")
+		play_instrument_next_loop("Bass1")
+		play_instrument_next_loop("Lead1Sub2")
