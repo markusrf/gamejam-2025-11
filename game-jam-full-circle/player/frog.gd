@@ -46,6 +46,6 @@ func _on_body_entered(body):
 
 func grow_player(body, gains):
 	if body is StaticBody3D:
-		body.queue_free()
 		for child in get_children():
 			child.scale *= gains
+		body.queue_free()
