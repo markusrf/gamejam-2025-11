@@ -8,6 +8,8 @@
 - [x] create a frog texture
 - [x] create other creatures
 - [ ] create more levels
+- [ ] check size to be able to eat fly
+- [ ] spikes
 - [ ] sound effects
     - [ ] ambient sounds
     - [ ] rolling / applying force
