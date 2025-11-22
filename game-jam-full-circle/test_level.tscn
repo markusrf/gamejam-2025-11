@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bsewb6k4ttv85"]
+[gd_scene load_steps=8 format=3 uid="uid://bsewb6k4ttv85"]
 
 [ext_resource type="PackedScene" uid="uid://bxy6c7rmssnpy" path="res://frog.tscn" id="1_gojnm"]
 
@@ -13,6 +13,8 @@ sky_material = SubResource("ProceduralSkyMaterial_gojnm")
 background_mode = 2
 sky = SubResource("Sky_1c2mv")
 tonemap_mode = 2
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gojnm"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1c2mv"]
 size = Vector2(20, 20)
@@ -31,6 +33,7 @@ environment = SubResource("Environment_f7g2b")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0, 0, 1, 0, 0, 0)
+physics_material_override = SubResource("PhysicsMaterial_gojnm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("PlaneMesh_1c2mv")
