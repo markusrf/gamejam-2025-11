@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://h1wklqb34osx"]
+
+[ext_resource type="PackedScene" uid="uid://bxy6c7rmssnpy" path="res://frog.tscn" id="1_bk5nh"]
+[ext_resource type="Script" uid="uid://bssh2lyga363e" path="res://camera_rig.gd" id="2_4idhk"]
+
+[node name="Player" type="Node3D"]
+
+[node name="Ball" parent="." instance=ExtResource("1_bk5nh")]
+
+[node name="CameraRig" type="Node3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.9053466, 0.42467353, 0, -0.42467353, 0.9053466, 0, 4, 10)
+script = ExtResource("2_4idhk")
+target = NodePath("../Ball")
+offset = Vector3(0, 2, 5)
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 0.98456436, 0.17502306, 0, -0.17502306, 0.98456436, 0, 0, 0)

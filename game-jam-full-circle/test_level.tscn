@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bsewb6k4ttv85"]
 
-[ext_resource type="PackedScene" uid="uid://bxy6c7rmssnpy" path="res://frog.tscn" id="1_gojnm"]
+[ext_resource type="PackedScene" uid="uid://h1wklqb34osx" path="res://player.tscn" id="1_gojnm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gojnm"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -24,6 +24,9 @@ data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0,
 
 [node name="TestLevel" type="Node3D"]
 
+[node name="Player" parent="." instance=ExtResource("1_gojnm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.979944, 2.854007, 0)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
@@ -41,8 +44,12 @@ mesh = SubResource("PlaneMesh_1c2mv")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_f7g2b")
 
-[node name="Ball" parent="." instance=ExtResource("1_gojnm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.539173, 2.9577413, 0)
+[node name="Plane" type="StaticBody3D" parent="."]
+transform = Transform3D(0.98740005, -0.15824424, 0, 0.15824424, 0.98740005, 0, 0, 0, 1, 0, 0, 0)
+physics_material_override = SubResource("PhysicsMaterial_gojnm")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0724156, 3.1371717, 4.838012)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Plane"]
+mesh = SubResource("PlaneMesh_1c2mv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane"]
+shape = SubResource("ConcavePolygonShape3D_f7g2b")
