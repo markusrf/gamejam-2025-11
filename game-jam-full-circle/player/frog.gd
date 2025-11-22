@@ -22,6 +22,11 @@ func _physics_process(_delta: float) -> void:
 		input_vector.x += 1.0
 	if Input.is_action_pressed("move_right"):
 		input_vector.x -= 1.0
+	if Input.is_action_pressed("jump"):
+		if(player_size > 5):
+			apply_central_force(Vector3.UP * move_force * 20)
+			player_size -= 0.1
+			set_size()
 	
 	if input_vector.length() > 0:
 		input_vector = input_vector.normalized()
@@ -31,7 +36,7 @@ func _physics_process(_delta: float) -> void:
 	direction.z = input_vector.y
 	
 	if(direction != Vector3.ZERO):
-		#apply_central_force(direction * move_force)
+		
 		var torque: Vector3 = direction.cross(Vector3.UP) * torque_strength
 		apply_torque(torque)
 	
