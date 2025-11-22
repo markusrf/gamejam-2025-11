@@ -1,0 +1,113 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3bxsxxodk3y5"]
+
+[ext_resource type="Script" uid="uid://dax50mlnwb4oi" path="res://levels/full_circle.gd" id="1_b7met"]
+[ext_resource type="PackedScene" uid="uid://h1wklqb34osx" path="res://player/player.tscn" id="1_jhvl0"]
+[ext_resource type="PackedScene" uid="uid://bpaa2ub1y32gm" path="res://interactible/eatable_box.tscn" id="2_hi37v"]
+
+[node name="FullCircle" type="Node3D"]
+script = ExtResource("1_b7met")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 0)
+light_energy = 16.0
+light_size = 0.474
+omni_range = 4096.0
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 47, 0)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+flip_faces = true
+radius = 5.0
+height = 100.0
+sides = 20
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(7.628666e-10, 0.017452352, -0.9998477, 1, -4.371139e-08, 5.551115e-17, -4.370473e-08, -0.9998477, -0.017452352, 0, -34, 0)
+layers = 3
+operation = 2
+flip_faces = true
+radius = 0.8
+height = 15.0
+sides = 14
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(-3.993234e-08, -0.9135454, 0.40673664, 1, -4.371139e-08, 0, 1.7779023e-08, 0.40673664, 0.9135454, 0, -50, 0)
+layers = 3
+operation = 2
+flip_faces = true
+radius = 0.8
+height = 15.0
+sides = 14
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(3.6238383e-08, 0.8290376, 0.55919284, 1, -4.371139e-08, 1.7763568e-15, 2.4443096e-08, 0.55919284, -0.8290376, 0, -46, 0)
+layers = 3
+operation = 2
+flip_faces = true
+radius = 0.8
+height = 15.0
+sides = 14
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(-4.189552e-09, -0.09584576, 0.9953962, 1, -4.371139e-08, 4.440892e-16, 4.351015e-08, 0.9953962, 0.09584576, 0, -43, 0)
+layers = 3
+operation = 2
+flip_faces = true
+radius = 0.8
+height = 15.0
+sides = 14
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(-4.0236547e-08, -0.92050487, -0.39073113, 1, -4.371139e-08, -1.7763568e-15, -1.7079397e-08, -0.39073113, 0.92050487, 0, -27, 0)
+layers = 3
+operation = 2
+flip_faces = true
+radius = 0.8
+height = 15.0
+sides = 14
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(-3.4491965e-08, -0.789084, 0.6142851, 1, -4.3711385e-08, 3.079058e-15, 2.6851255e-08, 0.6142851, 0.789084, 0, -29, 0)
+layers = 3
+operation = 2
+flip_faces = true
+radius = 0.8
+height = 15.0
+sides = 14
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(-4.3231257e-08, -0.9890159, -0.1478094, 1, -4.371139e-08, -4.440892e-16, -6.4609535e-09, -0.1478094, 0.9890159, 0, -31, 0)
+layers = 3
+operation = 2
+flip_faces = true
+radius = 0.8
+height = 15.0
+sides = 14
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(-3.6450306e-08, -0.8338857, 0.5519369, 1, -4.3711385e-08, 1.3027009e-15, 2.412593e-08, 0.5519369, 0.8338857, 0, -37, 0)
+layers = 3
+operation = 2
+flip_faces = true
+radius = 0.8
+height = 15.0
+sides = 14
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="CSGCylinder3D"]
+transform = Transform3D(-4.1572e-08, -0.95105654, -0.309017, 1, -4.371139e-08, 0, -1.3507562e-08, -0.309017, 0.95105654, 0, -40, 0)
+layers = 3
+operation = 2
+flip_faces = true
+radius = 0.8
+height = 15.0
+sides = 14
+
+[node name="Eatable2" parent="." instance=ExtResource("2_hi37v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 0)
+eat_value = 1.0
+speed = 4.0
+
+[node name="Player2" parent="." instance=ExtResource("1_jhvl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -3)

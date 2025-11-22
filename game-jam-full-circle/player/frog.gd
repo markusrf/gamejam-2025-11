@@ -64,7 +64,7 @@ func _on_body_entered(body: PhysicsBody3D):
 	grow_player(body)
 
 func grow_player(body):
-	if body is StaticBody3D:
+	if body is RigidBody3D:
 		player_size += body.eat_value
 		mass = player_size 
 		torque_strength = player_size * torque_multiplier
@@ -73,7 +73,7 @@ func grow_player(body):
 	
 	
 func set_size() -> void: 
-	print(player_size)
+	print_debug(player_size)
 	var newScale: float = (3.0*(player_size/(4.0*PI)))**(1.0/3.0)
 	var newVector: Vector3 = Vector3(newScale, newScale, newScale)
 	MusicController.player_size_changed(player_size)

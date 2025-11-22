@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dehs537gnd6pj"]
+
+[ext_resource type="Script" uid="uid://bkvbn1medhy6t" path="res://interactible/eatable_emitter.gd" id="1_sqdut"]
+
+[node name="EatableEmitter" type="Node3D"]
+script = ExtResource("1_sqdut")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

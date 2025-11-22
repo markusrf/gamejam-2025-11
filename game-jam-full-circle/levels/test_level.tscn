@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bsewb6k4ttv85"]
 
 [ext_resource type="PackedScene" uid="uid://h1wklqb34osx" path="res://player/player.tscn" id="1_gmgay"]
-[ext_resource type="PhysicsMaterial" uid="uid://552lgl8tvuko" path="res://ground_material.tres" id="2_w7r7j"]
+[ext_resource type="PhysicsMaterial" path="res://ground_material.tres" id="2_w7r7j"]
 [ext_resource type="PackedScene" uid="uid://bpaa2ub1y32gm" path="res://interactible/eatable_box.tscn" id="3_o6mel"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gojnm"]
@@ -41,6 +41,8 @@ environment = SubResource("Environment_f7g2b")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0, 0, 1, 0, 0, 0)
+collision_layer = 3
+collision_mask = 3
 physics_material_override = ExtResource("2_w7r7j")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
@@ -53,6 +55,8 @@ shape = SubResource("ConcavePolygonShape3D_gojnm")
 
 [node name="Plane" type="StaticBody3D" parent="."]
 transform = Transform3D(0.98740005, -0.15824424, 0, 0.15824424, 0.98740005, 0, 0, 0, 1, 0, 0, 0)
+collision_layer = 3
+collision_mask = 3
 physics_material_override = ExtResource("2_w7r7j")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Plane"]
@@ -62,23 +66,17 @@ mesh = SubResource("PlaneMesh_1c2mv")
 shape = SubResource("ConcavePolygonShape3D_f7g2b")
 
 [node name="Eatable" parent="." instance=ExtResource("3_o6mel")]
-transform = Transform3D(1.42, 0, 0, 0, 1.42, 0, 0, 0, 1.42, 4.779622, 1.6134815, 2.3196142)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.779622, 1.6134815, 2.3196142)
 eat_value = 3.0
+speed = 4.0
+newScale = 2.58
 
 [node name="Eatable2" parent="." instance=ExtResource("3_o6mel")]
-transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 5.1091366, 1.2680571, -5.6012735)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1091366, 1.2680571, -5.6012735)
 eat_value = 4.0
-
-[node name="Eatable5" parent="." instance=ExtResource("3_o6mel")]
-transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -0.39453197, 0.66103506, 1.4128084)
-eat_value = 20.0
+speed = 4.0
 
 [node name="Eatable6" parent="." instance=ExtResource("3_o6mel")]
-transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 1.2499006, 1.1872735, -8.105996)
-eat_value = 100.0
-
-[node name="Eatable3" parent="." instance=ExtResource("3_o6mel")]
-transform = Transform3D(0.48, 0, 0, 0, 0.48, 0, 0, 0, 0.48, 0.5451739, 0.72726846, 4.752096)
-
-[node name="Eatable4" parent="." instance=ExtResource("3_o6mel")]
-transform = Transform3D(0.745, 0, 0, 0, 0.745, 0, 0, 0, 0.745, 0.71822405, 0.999382, -1.6264746)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 2)
+eat_value = 1.0
+speed = 4.0
