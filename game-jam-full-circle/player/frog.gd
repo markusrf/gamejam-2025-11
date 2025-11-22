@@ -8,6 +8,9 @@ extends RigidBody3D
 var player_size: float = 1.0
 @onready var area_3d: Area3D = $Area3D
 @onready var smoke: Node3D = $Smoke
+@onready var you_won: Node2D = $"../YouWon"
+
+
 var win: bool = false
 
 func _ready():
@@ -17,6 +20,7 @@ func _ready():
 func _physics_process(_delta: float) -> void:
 	if (player_size >= 100):
 		win = true
+		you_won.visible = true
 	if (win):
 		if (camera_rig != null):
 			camera_rig.shake()

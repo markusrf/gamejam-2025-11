@@ -31,7 +31,9 @@ func spawn_one():
 	var ang = randf() * TAU
 	var r = sqrt(randf()) * spawn_radius
 	var offset = Vector3(cos(ang) * r, 0, sin(ang) * r)
-
+	
+	if not obj.is_node_ready():
+		await obj.ready
 	obj.global_position = global_transform.origin + offset
 
 	# Give random direction

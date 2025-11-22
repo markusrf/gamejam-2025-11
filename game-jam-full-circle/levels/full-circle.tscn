@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://h1wklqb34osx" path="res://player/player.tscn" id="1_jhvl0"]
 [ext_resource type="PackedScene" uid="uid://bpaa2ub1y32gm" path="res://interactible/eatable_box.tscn" id="2_hi37v"]
-[ext_resource type="PackedScene" path="res://interactible/eatable-emitter.tscn" id="3_b7met"]
+[ext_resource type="PackedScene" uid="uid://dehs537gnd6pj" path="res://interactible/eatable-emitter.tscn" id="3_b7met"]
 
 [sub_resource type="Sky" id="Sky_b7met"]
 
