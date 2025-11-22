@@ -4,17 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://bpaa2ub1y32gm" path="res://interactible/eatable_box.tscn" id="2_hi37v"]
 [ext_resource type="PackedScene" path="res://interactible/eatable-emitter.tscn" id="3_b7met"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b7met"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_ga4dm"]
-sky_material = SubResource("ProceduralSkyMaterial_b7met")
+[sub_resource type="Sky" id="Sky_b7met"]
 
 [sub_resource type="Environment" id="Environment_jxmua"]
-background_mode = 2
-sky = SubResource("Sky_ga4dm")
+background_mode = 1
+background_energy_multiplier = 0.2
+sky = SubResource("Sky_b7met")
 tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7met"]
+albedo_color = Color(0, 0, 0, 1)
 
 [node name="FullCircle" type="Node3D"]
 
@@ -23,6 +22,7 @@ environment = SubResource("Environment_jxmua")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 0)
+visible = false
 light_energy = 16.0
 light_size = 0.474
 omni_range = 4096.0
@@ -36,6 +36,7 @@ flip_faces = true
 radius = 5.0
 height = 100.0
 sides = 20
+material = SubResource("StandardMaterial3D_b7met")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCylinder3D"]
 transform = Transform3D(7.628666e-10, 0.017452352, -0.9998477, 1, -4.371139e-08, 5.551115e-17, -4.370473e-08, -0.9998477, -0.017452352, 0, -34, 0)
@@ -128,3 +129,17 @@ initial_burst = 10
 
 [node name="Player" parent="." instance=ExtResource("1_jhvl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.08021316, 0.59733504, -0.7979704, -0.8612637, 0.3614707, 0.3571609, 0.5017876, 0.715912, 0.4854683, -6.385339, 4.018846, 2.81604)
+light_energy = 16.0
+shadow_enabled = true
+spot_range = 100.0
+spot_angle = 40.1
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="."]
+transform = Transform3D(0.4807147, 0.8074142, 0.34204635, -0.8612637, 0.36147067, 0.35716084, 0.16473703, -0.46628454, 0.8691608, 6.1743155, 19.654886, 4.777623)
+light_energy = 16.0
+shadow_enabled = true
+spot_range = 100.0
+spot_angle = 40.1
