@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxenngqseywk0"]
+
+[ext_resource type="Script" uid="uid://ebblgc001ne7" path="res://create_cones.gd" id="1_t3ntd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0q8px"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_3xqyr"]
+sky_material = SubResource("ProceduralSkyMaterial_0q8px")
+
+[sub_resource type="Environment" id="Environment_2fi0t"]
+background_mode = 2
+background_energy_multiplier = 0.97
+sky = SubResource("Sky_3xqyr")
+tonemap_mode = 2
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2fi0t")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7538452)
+flip_faces = true
+size = Vector3(20, 5, 10)
+script = ExtResource("1_t3ntd")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -5.289434, -2.7204638, -0.0018615723)
+operation = 2
+flip_faces = true
+radius = 0.8
+height = 10.018127
+sides = 12
+
+[node name="ConeTemplate" type="CSGCylinder3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.076, -2.5, 0)
+operation = 2
+flip_faces = true
+cone = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.02792158, 0, 0.9996101, 0, 1, 0, -0.9996101, 0, 0.02792158, 9.054166, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4758222, 0)
+light_energy = 9.577
+omni_range = 15.185
