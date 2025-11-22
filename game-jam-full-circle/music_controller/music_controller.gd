@@ -38,6 +38,7 @@ func _process(delta):
 func on_loop_point():
 	# This function is called on the first frame that hapens
 	# after the music has looped
+	print_debug("processing scheduled events: ", scheduled_actions.size())
 	for action in scheduled_actions:
 		action.call()
 	scheduled_actions.clear()
@@ -100,13 +101,11 @@ func set_instrument_volume(name: String, volume_db: float):
 	p.volume_db = volume_db
 
 func fade_in(player: AudioStreamPlayer, duration: float = 1.0) -> void:
-	player.volume_db = -80.0
 	var tween := create_tween()
 	tween.tween_property(player, "volume_db", 0.0, duration)
 
 
 func fade_out(player: AudioStreamPlayer, duration: float = 1.0) -> void:
-	player.volume_db = 0.0
 	var tween := create_tween()
 	tween.tween_property(player, "volume_db", -80.0, duration)
 
