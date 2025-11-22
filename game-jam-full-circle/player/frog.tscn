@@ -1,19 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxy6c7rmssnpy"]
+[gd_scene load_steps=6 format=3 uid="uid://bxy6c7rmssnpy"]
 
 [ext_resource type="Script" uid="uid://d17ahs40ypfb0" path="res://player/frog.gd" id="1_e23au"]
+[ext_resource type="PackedScene" uid="uid://bvo6q1je85xvc" path="res://assets/frog.blend" id="2_hkdbt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gyfqy"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_gyfqy"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_whe2r"]
-noise = SubResource("FastNoiseLite_gyfqy")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ekd3"]
-albedo_texture = SubResource("NoiseTexture2D_whe2r")
-
-[sub_resource type="SphereMesh" id="SphereMesh_cbx31"]
-material = SubResource("StandardMaterial3D_6ekd3")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_x8fbi"]
 
@@ -24,8 +14,8 @@ radius = 0.4
 physics_material_override = SubResource("PhysicsMaterial_gyfqy")
 script = ExtResource("1_e23au")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_cbx31")
+[node name="frog" parent="." instance=ExtResource("2_hkdbt")]
+transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_x8fbi")
