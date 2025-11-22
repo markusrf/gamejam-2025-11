@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://c3wd5as71e0kx"]
+
+[ext_resource type="Script" uid="uid://bqjlhk3cea6q6" path="res://interactible/pressure_plate.gd" id="1_6368n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k6yph"]
+size = Vector3(1, 0.2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uot4y"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8bqyo"]
+material = SubResource("StandardMaterial3D_uot4y")
+size = Vector3(1, 0.2, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6368n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_djmga"]
+albedo_color = Color(0.255274, 0.100200154, 0.0053727035, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ec6ob"]
+material = SubResource("StandardMaterial3D_djmga")
+size = Vector3(1.2, 0.1, 1.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6368n"]
+size = Vector3(1.2, 0.1, 1.2)
+
+[node name="PressurePlate" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_6368n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.055351675, 0)
+shape = SubResource("BoxShape3D_k6yph")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_8bqyo")
+skeleton = NodePath("../Area3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.054492235, 0)
+physics_material_override = SubResource("PhysicsMaterial_6368n")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_ec6ob")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_6368n")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
