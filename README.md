@@ -3,7 +3,7 @@
 ### Most important
 - [x] combine and refactor code
 - [x] create a test level
-- [ ] create a frog-type beat
+- [x] create a frog-type beat
 - [x] create a frog 3d model / add feet, eyes, mouth
 - [x] create a frog texture
 - [ ] create other creatures
@@ -16,7 +16,7 @@
     - [ ] deflate balloon
 - [ ] ui
     - [ ] start menu
-    - [ ] restart button
+    - [x] restart button
     - [ ] display score / mass
     - [ ] win state
     - [ ] fail state
@@ -24,7 +24,7 @@
 
 ### Extras
 - [ ] create tungue
-- [ ] poop
+- [x] poop
 - [ ] create more levels
 - [ ] sound effects
     - [ ] extend tungue
