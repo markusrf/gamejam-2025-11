@@ -6,10 +6,43 @@
 
 [node name="foot" type="Node3D"]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("CapsuleShape3D_augjr")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("CapsuleMesh_agajq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="StaticBody3D"]
+transform = Transform3D(0.90011704, -0.4317363, 0.058250576, -0.01905516, -0.17259955, -0.9848077, 0.43523127, 0.8853323, -0.1635866, -0.22825074, -0.7207016, 0.4608003)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/StaticBody3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_augjr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/StaticBody3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_agajq")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="StaticBody3D"]
+transform = Transform3D(0.9812441, -0.15614446, -0.11304258, 0.15516712, 0.29182687, 0.94380087, -0.114380404, -0.94363964, 0.31058195, 0.11747709, -0.7251278, 0.5229567)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/StaticBody3D2"]
+transform = Transform3D(0.3, -3.7252903e-09, 9.313226e-10, -3.7252903e-09, 0.3, 0, -4.656613e-09, -7.450581e-09, 0.30000004, 0.0018916391, 0.015606046, -0.0051364303)
+shape = SubResource("CapsuleShape3D_augjr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/StaticBody3D2"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_agajq")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="StaticBody3D"]
+transform = Transform3D(0.78260785, 0.5771854, -0.23319805, 0, -0.3746065, -0.9271836, -0.6225144, 0.7256214, -0.29317012, 0.45094597, -0.7320922, 0.33387464)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/StaticBody3D3"]
+transform = Transform3D(0.3, 0, 9.313226e-10, 1.4901161e-08, 0.3, -1.7763568e-15, -4.6566124e-09, -7.450579e-09, 0.30000004, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_augjr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/StaticBody3D3"]
+transform = Transform3D(0.3, -2.9802322e-08, 3.7252903e-09, 2.9802322e-08, 0.3, 0, -1.1175871e-08, 7.450581e-09, 0.30000004, -0.017489582, -0.012898803, 0.0052114725)
 mesh = SubResource("CapsuleMesh_agajq")
