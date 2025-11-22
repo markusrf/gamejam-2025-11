@@ -14,9 +14,8 @@ sky_material = SubResource("ProceduralSkyMaterial_gojnm")
 [sub_resource type="Environment" id="Environment_f7g2b"]
 background_mode = 2
 sky = SubResource("Sky_1c2mv")
-tonemap_mode = 2
-glow_enabled = true
 glow_intensity = 2.0
+adjustment_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1c2mv"]
 size = Vector2(20, 20)
@@ -68,6 +67,10 @@ eat_value = 3.0
 [node name="Eatable2" parent="." instance=ExtResource("3_o6mel")]
 transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 5.1091366, 1.2680571, -5.6012735)
 eat_value = 4.0
+
+[node name="Eatable5" parent="." instance=ExtResource("3_o6mel")]
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, -0.39453197, 0.66103506, 1.4128084)
+eat_value = 20.0
 
 [node name="Eatable3" parent="." instance=ExtResource("3_o6mel")]
 transform = Transform3D(0.48, 0, 0, 0, 0.48, 0, 0, 0, 0.48, 0.5451739, 0.72726846, 4.752096)

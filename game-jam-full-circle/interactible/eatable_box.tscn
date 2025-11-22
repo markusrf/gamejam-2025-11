@@ -1,13 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpaa2ub1y32gm"]
+[gd_scene load_steps=4 format=3 uid="uid://bpaa2ub1y32gm"]
 
-[ext_resource type="Script" uid="uid://coyv5do56blkr" path="res://interactible/eatable_box.gd" id="1_j6b03"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihxt5"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_dq0sv"]
-material = SubResource("StandardMaterial3D_ihxt5")
-size = Vector3(0.5, 0.5, 0.5)
+[ext_resource type="Script" path="res://interactible/eatable_box.gd" id="1_j6b03"]
+[ext_resource type="PackedScene" uid="uid://dourfxvmor43x" path="res://assets/fly.blend" id="2_g4rgj"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3yptb"]
 data = PackedVector3Array(-0.25, 0.25, 0.25, 0.25, 0.25, 0.25, -0.25, -0.25, 0.25, 0.25, 0.25, 0.25, 0.25, -0.25, 0.25, -0.25, -0.25, 0.25, 0.25, 0.25, -0.25, -0.25, 0.25, -0.25, 0.25, -0.25, -0.25, -0.25, 0.25, -0.25, -0.25, -0.25, -0.25, 0.25, -0.25, -0.25, 0.25, 0.25, 0.25, 0.25, 0.25, -0.25, 0.25, -0.25, 0.25, 0.25, 0.25, -0.25, 0.25, -0.25, -0.25, 0.25, -0.25, 0.25, -0.25, 0.25, -0.25, -0.25, 0.25, 0.25, -0.25, -0.25, -0.25, -0.25, 0.25, 0.25, -0.25, -0.25, 0.25, -0.25, -0.25, -0.25, 0.25, 0.25, 0.25, -0.25, 0.25, 0.25, 0.25, 0.25, -0.25, -0.25, 0.25, 0.25, -0.25, 0.25, -0.25, 0.25, 0.25, -0.25, -0.25, -0.25, 0.25, 0.25, -0.25, 0.25, -0.25, -0.25, -0.25, 0.25, -0.25, 0.25, 0.25, -0.25, -0.25, -0.25, -0.25, -0.25)
@@ -17,9 +11,7 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_j6b03")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.83, 0, 0, 0, 1.83, 0, 0, 0, 1.83, 0, 0, 0)
-mesh = SubResource("BoxMesh_dq0sv")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConcavePolygonShape3D_3yptb")
+
+[node name="fly" parent="." instance=ExtResource("2_g4rgj")]

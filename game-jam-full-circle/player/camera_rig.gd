@@ -2,7 +2,7 @@ extends Node3D
 
 @export var target: Node3D
 @export var follow_speed: float = 8.0
-@export var offset: Vector3 = Vector3(0, 4, 10)
+@export var offset: Vector3 = Vector3(0, 2, 5)
 
 func _physics_process(delta: float) -> void:
 	if(target == null):
