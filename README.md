@@ -6,7 +6,8 @@
 - [x] create a frog-type beat
 - [x] create a frog 3d model / add feet, eyes, mouth
 - [x] create a frog texture
-- [ ] create other creatures
+- [x] create other creatures
+- [ ] create more levels
 - [ ] sound effects
     - [ ] ambient sounds
     - [ ] rolling / applying force
@@ -15,7 +16,7 @@
     - [ ] flies
     - [ ] deflate balloon
 - [ ] ui
-    - [ ] start menu
+    - [x] start menu
     - [x] restart button
     - [ ] display score / mass
     - [ ] win state
@@ -24,8 +25,5 @@
 
 ### Extras
 - [ ] create tungue
-- [x] poop
-- [ ] create more levels
 - [ ] sound effects
     - [ ] extend tungue
-    - [ ] poop
