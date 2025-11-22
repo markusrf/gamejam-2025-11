@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://4a3jingwmttq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ihxt5"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dq0sv"]
+
+[node name="ToungeWorldCollision" type="CollisionShape3D"]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, -0.2, 0, 0.2, -8.742278e-09, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_ihxt5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_dq0sv")
