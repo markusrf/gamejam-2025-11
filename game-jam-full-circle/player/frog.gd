@@ -2,11 +2,14 @@ extends RigidBody3D
 
 @export var move_force: float = 20.0
 @export var torque_strength: float = 5.0
+@export var torque_multiplier: float = 5.0
 @export var max_angular_speed: float = 10.0
+var player_size: float = 1.0
 @onready var area_3d: Area3D = $Area3D
 
 func _ready():
 	area_3d.connect("body_entered", _on_body_entered)
+	set_size()
 
 func _physics_process(_delta: float) -> void:
 	var input_vector = Vector2.ZERO
@@ -41,11 +44,23 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		ang_vel = ang_vel.normalized() * max_angular_speed
 		state.angular_velocity = ang_vel 
 
-func _on_body_entered(body):
-	grow_player(body, 1.1)
+func _on_body_entered(body: PhysicsBody3D):
+	grow_player(body)
 
-func grow_player(body, gains):
+func grow_player(body):
 	if body is StaticBody3D:
-		for child in get_children():
-			child.scale *= gains
+		player_size += body.eat_value
+		mass = player_size 
+		torque_strength = player_size * torque_multiplier
+		set_size()
 		body.queue_free()
+	
+	
+func set_size() -> void: 
+	print(player_size)
+	var newScale: float = (3.0*(player_size/(4.0*PI)))**(1.0/3.0)
+	var newVector: Vector3 = Vector3(newScale, newScale, newScale)
+	
+	for child in get_children():
+		child.scale = newVector
+	

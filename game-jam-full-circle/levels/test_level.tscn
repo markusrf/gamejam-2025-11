@@ -60,13 +60,15 @@ mesh = SubResource("PlaneMesh_1c2mv")
 shape = SubResource("ConcavePolygonShape3D_f7g2b")
 
 [node name="Eatable" parent="." instance=ExtResource("3_o6mel")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5451739, 0.5179465, 0.39819264)
+transform = Transform3D(1.42, 0, 0, 0, 1.42, 0, 0, 0, 1.42, 4.779622, 1.6134815, 2.3196142)
+eat_value = 3.0
 
 [node name="Eatable2" parent="." instance=ExtResource("3_o6mel")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5451739, 1.8920434, 0.39819264)
+transform = Transform3D(2.52, 0, 0, 0, 2.52, 0, 0, 0, 2.52, 5.1091366, 1.2680571, -5.6012735)
+eat_value = 4.0
 
 [node name="Eatable3" parent="." instance=ExtResource("3_o6mel")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5451739, 0.72726846, 2.6159368)
+transform = Transform3D(0.48, 0, 0, 0, 0.48, 0, 0, 0, 0.48, 0.5451739, 0.72726846, 4.752096)
 
 [node name="Eatable4" parent="." instance=ExtResource("3_o6mel")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5451739, 0.6091516, -0.4501264)
+transform = Transform3D(0.745, 0, 0, 0, 0.745, 0, 0, 0, 0.745, 0.71822405, 0.999382, -1.6264746)
