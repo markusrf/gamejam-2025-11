@@ -118,7 +118,6 @@ func fade_out(player: AudioStreamPlayer, duration: float = 1.0) -> void:
 func init_music():
 	set_instrument_volume("Shaker1", 0)
 	set_instrument_volume("Shaker2", 0)
-	play_instrument_next_loop("Lead1Add1")
 
 func player_size_changed(new_size):
 	mute_all_next_loop()
