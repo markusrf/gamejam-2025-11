@@ -14,6 +14,7 @@ sky_material = SubResource("ProceduralSkyMaterial_gojnm")
 [sub_resource type="Environment" id="Environment_f7g2b"]
 background_mode = 2
 sky = SubResource("Sky_1c2mv")
+glow_enabled = true
 glow_intensity = 2.0
 adjustment_enabled = true
 
