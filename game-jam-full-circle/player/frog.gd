@@ -6,6 +6,7 @@ extends RigidBody3D
 @export var max_angular_speed: float = 10.0
 var player_size: float = 1.0
 @onready var area_3d: Area3D = $Area3D
+@onready var smoke: Node3D = $Smoke
 
 func _ready():
 	area_3d.connect("body_entered", _on_body_entered)
@@ -22,8 +23,10 @@ func _physics_process(_delta: float) -> void:
 		input_vector.x += 1.0
 	if Input.is_action_pressed("move_right"):
 		input_vector.x -= 1.0
+	smoke.visible = false
 	if Input.is_action_pressed("jump"):
 		if(player_size > 5):
+			smoke.visible = true
 			apply_central_force(Vector3.UP * move_force * 20)
 			player_size -= 0.1
 			set_size()
