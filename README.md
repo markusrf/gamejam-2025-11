@@ -13,6 +13,7 @@
     - [ ] eating
     - [ ] collision
     - [ ] flies
+    - [ ] deflate balloon
 - [ ] ui
     - [ ] start menu
     - [ ] restart button
