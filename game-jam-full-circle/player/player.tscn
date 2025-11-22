@@ -8,9 +8,10 @@
 [node name="Player" type="Node3D"]
 script = ExtResource("1_yw30f")
 
-[node name="Frog" parent="." instance=ExtResource("1_bk5nh")]
+[node name="Frog" parent="." node_paths=PackedStringArray("camera_rig") instance=ExtResource("1_bk5nh")]
 physics_material_override = ExtResource("2_i3pqv")
 max_angular_speed = 20.0
+camera_rig = NodePath("../CameraRig")
 
 [node name="CameraRig" type="Node3D" parent="." node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 0.9053466, 0.42467353, 0, -0.42467353, 0.9053466, 0, 0.90826845, 1.5662088)
