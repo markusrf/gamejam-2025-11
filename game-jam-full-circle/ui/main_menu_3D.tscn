@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvk1d08xe50i2"]
+
+[ext_resource type="Script" uid="uid://bjxtpcd136ie1" path="res://ui/spooky_main_menu.gd" id="1_38k23"]
+[ext_resource type="PackedScene" uid="uid://cbg78obghchom" path="res://ui/main_menu.tscn" id="1_tr4jb"]
+[ext_resource type="PackedScene" uid="uid://bvo6q1je85xvc" path="res://assets/frog.blend" id="3_cx827"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_btkj3"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_3jhq5"]
+sky_material = SubResource("ProceduralSkyMaterial_btkj3")
+
+[sub_resource type="Environment" id="Environment_5gygx"]
+background_mode = 2
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_3jhq5")
+tonemap_mode = 2
+
+[node name="SpookyMainMenu" type="Node3D"]
+script = ExtResource("1_38k23")
+
+[node name="main_menu" parent="." instance=ExtResource("1_tr4jb")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.89871967, -0.43823907, -0.015802078, 0.25996593, -0.5034134, -0.8240103, 0.35315856, -0.74466217, 0.56635463, 0, 0.57959217, -0.6200568)
+light_energy = 0.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5gygx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.29220748)
+
+[node name="frog" parent="." instance=ExtResource("3_cx827")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5978216)
