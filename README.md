@@ -7,21 +7,21 @@
 - [x] create a frog 3d model / add feet, eyes, mouth
 - [x] create a frog texture
 - [x] create other creatures
-- [ ] create level system
-- [ ] check size to be able to eat fly
-- [ ] tweak jump values relative to mass
-- [ ] create more levels
+- [x] create level system
+- [x] check size to be able to eat fly
+- [x] tweak jump values relative to mass
+- [x] create more levels
 - [ ] sound effects
-    - [ ] eating
-    - [ ] flies
-    - [ ] deflate balloon
+    - [x] eating
+    - [x] flies
+    - [x] deflate balloon
     - [ ] win
 - [ ] ui
     - [x] start menu
-    - [ ] show controls on start menu
+    - [x] show controls on start menu
     - [ ] restart button
-    - [ ] display score / mass
-    - [ ] win state
+    - [x] display score / mass
+    - [x] win state
 - [x] test upload to itch.io
 
 ### Extras
