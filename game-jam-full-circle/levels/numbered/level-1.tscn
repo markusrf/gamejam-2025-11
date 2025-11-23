@@ -1,8 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqs4s2mhl0oty"]
+[gd_scene load_steps=11 format=3 uid="uid://cqs4s2mhl0oty"]
 
 [ext_resource type="PackedScene" uid="uid://h1wklqb34osx" path="res://player/player.tscn" id="1_vn7o3"]
 [ext_resource type="PackedScene" uid="uid://bpaa2ub1y32gm" path="res://interactible/eatables/eatable_box.tscn" id="2_jirdo"]
 [ext_resource type="PackedScene" uid="uid://l10v7def3slf" path="res://interactible/eatable_gold.tscn" id="3_bt44k"]
+[ext_resource type="Shader" uid="uid://dw48ww2soqb76" path="res://assets/ocean.gdshader" id="4_75qsi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dg0hd"]
+render_priority = 0
+shader = ExtResource("4_75qsi")
+shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
+shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
+shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(100, 100)
+shader_parameter/height = 2.0
+shader_parameter/wave_size = Vector2(2, 2)
+shader_parameter/wave_speed = 1.5
+shader_parameter/wave_movement = 0.05
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6m267"]
+material = SubResource("ShaderMaterial_dg0hd")
+size = Vector2(500, 500)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vn7o3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -16,12 +34,15 @@ background_mode = 2
 sky = SubResource("Sky_3fp6m")
 tonemap_mode = 2
 glow_enabled = true
-glow_intensity = 8.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jirdo"]
 albedo_color = Color(0.22051021, 0.16014993, 0.22061938, 1)
 
 [node name="Level1" type="Node3D"]
+
+[node name="Ocean" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.021378, 0, -12.466347)
+mesh = SubResource("PlaneMesh_6m267")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -53,10 +74,12 @@ size = Vector3(9.852516, 5, 17.837524)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 0.99995345, -0.009651482, 0, 0.009651482, 0.99995345, -8.045255, 1.6886024, -6.34691)
+visible = false
 size = Vector3(7.244129, 9.769714, 42.13983)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 0.99995345, -0.009651482, 0, 0.009651482, 0.99995345, 8.0013075, 1.2846909, -6.350808)
+visible = false
 size = Vector3(7.244129, 8.961853, 42.13983)
 
 [node name="Eatable2" parent="." instance=ExtResource("2_jirdo")]
