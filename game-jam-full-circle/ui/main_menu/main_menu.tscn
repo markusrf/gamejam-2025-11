@@ -4,66 +4,123 @@
 [ext_resource type="Script" uid="uid://5dt6hloanu57" path="res://ui/main_menu/button.gd" id="1_t7e0r"]
 [ext_resource type="Script" uid="uid://oe0l8h2i6wi7" path="res://ui/main_menu/select_level.gd" id="2_mu8pm"]
 
-[node name="main_menu" type="Node2D"]
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_omy8q")
 
 [node name="start_screen" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="CenterContainer" type="CenterContainer" parent="start_screen"]
-layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 646.0
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -157.0
+offset_right = 619.0
+offset_bottom = 157.0
+grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="start_screen/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="start_screen/CenterContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="start_screen/CenterContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="start_screen/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="start_screen/CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="start_screen/CenterContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "STAR FrOgX"
 horizontal_alignment = 1
 
-[node name="start" type="Button" parent="start_screen/CenterContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="start_screen/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="start" type="Button" parent="start_screen/CenterContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Start"
 script = ExtResource("1_t7e0r")
 
-[node name="select_level" type="Button" parent="start_screen/CenterContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="start_screen/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="select_level" type="Button" parent="start_screen/CenterContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Select level"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="start_screen"]
+[node name="VBoxContainer3" type="HBoxContainer" parent="start_screen"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 35.0
-offset_top = 583.0
-offset_right = 401.0
-offset_bottom = 628.0
-grow_horizontal = 2
+offset_left = -248.0
+offset_bottom = 110.0
+grow_horizontal = 0
 alignment = 1
 metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="start_screen/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "r: restart
+m: back to menu"
+
+[node name="MarginContainer" type="MarginContainer" parent="start_screen/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/margin_right = 50
+
+[node name="VBoxContainer" type="HBoxContainer" parent="start_screen"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -112.0
+offset_right = 329.0
+offset_bottom = -2.0
+grow_vertical = 0
+alignment = 1
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="start_screen/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
 
 [node name="Label" type="Label" parent="start_screen/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Controls: WASD + Space"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="start_screen"]
+[node name="VBoxContainer2" type="HBoxContainer" parent="start_screen"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
-offset_left = 982.0
-offset_top = 590.0
-offset_right = 1268.0
-offset_bottom = 635.0
-grow_horizontal = 2
+anchor_bottom = 1.0
+offset_left = -124.0
+offset_top = -110.0
+grow_horizontal = 0
+grow_vertical = 0
 alignment = 1
 metadata/_edit_group_ = true
 
@@ -72,81 +129,97 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "best with sound"
 
-[node name="level_select" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 352.0
-offset_top = 242.0
-offset_right = 829.0
-offset_bottom = 507.0
-metadata/_edit_group_ = true
+[node name="MarginContainer" type="MarginContainer" parent="start_screen/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_right = 50
 
-[node name="back" type="Button" parent="level_select"]
+[node name="level_select" type="Control" parent="."]
+visible = false
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -31.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 32
-text = "Back"
+grow_vertical = 2
+metadata/_edit_group_ = true
 
-[node name="GridContainer" type="GridContainer" parent="level_select"]
-layout_mode = 0
-offset_right = 524.0
-offset_bottom = 189.0
+[node name="CenterContainer" type="CenterContainer" parent="level_select"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.0
+offset_top = -50.0
+offset_right = 228.0
+offset_bottom = 235.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="level_select/CenterContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="level_select/CenterContainer/VBoxContainer"]
+layout_mode = 2
 columns = 5
 
-[node name="level1" type="Button" parent="level_select/GridContainer"]
+[node name="level1" type="Button" parent="level_select/CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Level 1"
 script = ExtResource("2_mu8pm")
 
-[node name="level2" type="Button" parent="level_select/GridContainer"]
+[node name="level2" type="Button" parent="level_select/CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Level 2"
 script = ExtResource("2_mu8pm")
 level_num = 2.0
 
-[node name="level3" type="Button" parent="level_select/GridContainer"]
+[node name="level3" type="Button" parent="level_select/CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Level 3"
 script = ExtResource("2_mu8pm")
 level_num = 3.0
 
-[node name="level4" type="Button" parent="level_select/GridContainer"]
+[node name="level4" type="Button" parent="level_select/CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Level 4"
 script = ExtResource("2_mu8pm")
 level_num = 4.0
 
-[node name="level5" type="Button" parent="level_select/GridContainer"]
+[node name="level5" type="Button" parent="level_select/CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Level 5"
 script = ExtResource("2_mu8pm")
 level_num = 5.0
 
-[node name="level6" type="Button" parent="level_select/GridContainer"]
+[node name="level6" type="Button" parent="level_select/CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Level 6"
 script = ExtResource("2_mu8pm")
 level_num = 6.0
 
-[connection signal="pressed" from="start_screen/CenterContainer/VBoxContainer/start" to="start_screen/CenterContainer/VBoxContainer/start" method="_on_pressed"]
-[connection signal="pressed" from="start_screen/CenterContainer/VBoxContainer/select_level" to="." method="_on_select_level_pressed"]
-[connection signal="pressed" from="start_screen/CenterContainer/VBoxContainer/select_level" to="start_screen/CenterContainer/VBoxContainer/select_level" method="_on_pressed"]
-[connection signal="pressed" from="level_select/back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="level_select/GridContainer/level1" to="level_select/GridContainer/level1" method="_on_pressed"]
-[connection signal="pressed" from="level_select/GridContainer/level2" to="level_select/GridContainer/level2" method="_on_pressed"]
-[connection signal="pressed" from="level_select/GridContainer/level3" to="level_select/GridContainer/level3" method="_on_pressed"]
-[connection signal="pressed" from="level_select/GridContainer/level4" to="level_select/GridContainer/level4" method="_on_pressed"]
-[connection signal="pressed" from="level_select/GridContainer/level5" to="level_select/GridContainer/level5" method="_on_pressed"]
-[connection signal="pressed" from="level_select/GridContainer/level6" to="level_select/GridContainer/level6" method="_on_pressed"]
+[node name="MarginContainer" type="MarginContainer" parent="level_select/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="back" type="Button" parent="level_select/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Back"
+
+[connection signal="pressed" from="start_screen/CenterContainer/HBoxContainer/VBoxContainer/start" to="start_screen/CenterContainer/HBoxContainer/VBoxContainer/start" method="_on_pressed"]
+[connection signal="pressed" from="start_screen/CenterContainer/HBoxContainer/VBoxContainer/select_level" to="." method="_on_select_level_pressed"]
+[connection signal="pressed" from="level_select/CenterContainer/VBoxContainer/GridContainer/level1" to="level_select/CenterContainer/VBoxContainer/GridContainer/level1" method="_on_pressed"]
+[connection signal="pressed" from="level_select/CenterContainer/VBoxContainer/GridContainer/level2" to="level_select/CenterContainer/VBoxContainer/GridContainer/level2" method="_on_pressed"]
+[connection signal="pressed" from="level_select/CenterContainer/VBoxContainer/GridContainer/level3" to="level_select/CenterContainer/VBoxContainer/GridContainer/level3" method="_on_pressed"]
+[connection signal="pressed" from="level_select/CenterContainer/VBoxContainer/GridContainer/level4" to="level_select/CenterContainer/VBoxContainer/GridContainer/level4" method="_on_pressed"]
+[connection signal="pressed" from="level_select/CenterContainer/VBoxContainer/GridContainer/level5" to="level_select/CenterContainer/VBoxContainer/GridContainer/level5" method="_on_pressed"]
+[connection signal="pressed" from="level_select/CenterContainer/VBoxContainer/GridContainer/level6" to="level_select/CenterContainer/VBoxContainer/GridContainer/level6" method="_on_pressed"]
+[connection signal="pressed" from="level_select/CenterContainer/VBoxContainer/back" to="." method="_on_back_pressed"]

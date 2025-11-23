@@ -21,6 +21,11 @@ MusicController="*res://music_controller/music_controller.tscn"
 SfxController="*res://sfx_controller/SfxController.tscn"
 GlobalLevel="*res://global_level.tscn"
 
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+
 [global_group]
 
 eatable=""
