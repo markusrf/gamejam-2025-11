@@ -44,16 +44,19 @@ func _fade_out(player: String, tweener: Tweener, duration: float = 1.0) -> void:
 ### Public functions
 
 func init_player():
-	print_debug("SFX: init player")
+	print("SFX: init player")
 
 func start_jump():
-	print_debug("SFX: start jump")
+	print("SFX: start jump")
 
 func stop_jump():
-	print_debug("SFX: stop jump")
+	print("SFX: stop jump")
 
 func eat_fly():
-	print_debug("SFX: eat fly")
+	print("SFX: eat fly")
+
+func press_button():
+	print("SFX: pressed button")
 
 func win():
-	print_debug("SFX: win")
+	print("SFX: win")
