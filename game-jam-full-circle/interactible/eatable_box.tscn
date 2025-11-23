@@ -8,8 +8,8 @@ radius = 0.235
 height = 0.792
 
 [node name="Eatable" type="RigidBody3D" groups=["eatable"]]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_j6b03")
 
 [node name="fly" parent="." instance=ExtResource("2_g4rgj")]

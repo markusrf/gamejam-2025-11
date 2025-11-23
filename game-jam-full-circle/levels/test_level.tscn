@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bsewb6k4ttv85"]
 
 [ext_resource type="PackedScene" uid="uid://h1wklqb34osx" path="res://player/player.tscn" id="1_gmgay"]
-[ext_resource type="PhysicsMaterial" uid="uid://552lgl8tvuko" path="res://ground_material.tres" id="2_w7r7j"]
+[ext_resource type="PhysicsMaterial" path="res://ground_material.tres" id="2_w7r7j"]
 [ext_resource type="PackedScene" uid="uid://bpaa2ub1y32gm" path="res://interactible/eatable_box.tscn" id="3_o6mel"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gojnm"]
@@ -72,7 +72,47 @@ newScale = 2.58
 
 [node name="Eatable2" parent="." instance=ExtResource("3_o6mel")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1091366, 1.2680571, -5.6012735)
-eat_value = 4.0
+eat_value = 2.0
+
+[node name="Eatable3" parent="." instance=ExtResource("3_o6mel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1091366, 1.2680571, -5.6012735)
+eat_value = 2.0
+
+[node name="Eatable4" parent="." instance=ExtResource("3_o6mel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1091366, 1.2680571, -5.6012735)
+eat_value = 2.0
+
+[node name="Eatable5" parent="." instance=ExtResource("3_o6mel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1091366, 1.2680571, -5.6012735)
+eat_value = 2.0
+
+[node name="Eatable7" parent="." instance=ExtResource("3_o6mel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1091366, 1.2680571, -5.6012735)
+eat_value = 2.0
+
+[node name="Eatable8" parent="." instance=ExtResource("3_o6mel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1091366, 1.2680571, -5.6012735)
+eat_value = 2.0
+
+[node name="Eatable9" parent="." instance=ExtResource("3_o6mel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1091366, 1.2680571, -5.6012735)
+eat_value = 2.0
+
+[node name="Eatable10" parent="." instance=ExtResource("3_o6mel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1091366, 1.2680571, -2.6012735)
+eat_value = 2.0
+
+[node name="Eatable11" parent="." instance=ExtResource("3_o6mel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1091366, 1.2680571, -2.6012735)
+eat_value = 2.0
+
+[node name="Eatable12" parent="." instance=ExtResource("3_o6mel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1091366, 1.2680571, -2.6012735)
+eat_value = 2.0
+
+[node name="Eatable13" parent="." instance=ExtResource("3_o6mel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1091366, 1.2680571, -2.6012735)
+eat_value = 2.0
 
 [node name="Eatable6" parent="." instance=ExtResource("3_o6mel")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 2)

@@ -71,10 +71,11 @@ func _on_body_entered(body: PhysicsBody3D):
 	grow_player(body)
 
 func grow_player(body):
-	if body is RigidBody3D:
-		player_size += body.eat_value
-		set_size()
-		body.queue_free()
+	if body.get("eat_value"):
+		if(player_size >= body.eat_value):
+			player_size += body.eat_value
+			set_size()
+			body.queue_free()
 	
 	
 func set_size() -> void: 
