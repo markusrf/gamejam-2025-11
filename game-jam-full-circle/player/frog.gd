@@ -70,12 +70,38 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 func _on_body_entered(body: PhysicsBody3D):
 	grow_player(body)
 
+func capsule_volume(r, h) -> float:
+	
+	return PI * r * r * h + (4.0 / 3.0) * PI * pow(r, 3)
+	
 func grow_player(body):
-	if body is RigidBody3D:
+	if not ("eat_value" in body):
+		return
+
+	# Find capsule shape
+	var shape: CapsuleShape3D = null
+	for child in body.get_children():
+		if child is CollisionShape3D and child.shape is CapsuleShape3D:
+			shape = child.shape
+			break
+
+	if shape == null:
+		return
+
+	var S = body.scale.x
+	var r = shape.radius * S * body.newScale
+	var h = shape.height * S * body.newScale
+
+	# Call the function directly, NOT via body
+	var eatable_size = capsule_volume(r, h) * 1.1
+	print_debug("eatable_size ", eatable_size)
+	print_debug("player_size ",player_size)
+	if player_size >= eatable_size:
 		player_size += body.eat_value
 		set_size()
 		body.queue_free()
-	
+
+
 	
 func set_size() -> void: 
 	print_debug(player_size)

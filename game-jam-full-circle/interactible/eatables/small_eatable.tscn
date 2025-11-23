@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://q5l8bxt246nv"]
+
+[ext_resource type="PackedScene" uid="uid://bpaa2ub1y32gm" path="res://interactible/eatables/eatable_box.tscn" id="1_fo6r5"]
+
+[node name="SmallEatable" type="Node3D"]
+
+[node name="Eatable" parent="." instance=ExtResource("1_fo6r5")]
+eat_value = 25.0
