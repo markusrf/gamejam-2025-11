@@ -5,4 +5,4 @@
 [node name="SmallEatable" type="Node3D"]
 
 [node name="Eatable" parent="." instance=ExtResource("1_fo6r5")]
-eat_value = 25.0
+eat_value = 5.0
