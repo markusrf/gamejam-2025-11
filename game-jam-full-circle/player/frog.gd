@@ -8,7 +8,8 @@ extends RigidBody3D
 var player_size: float = 1.0
 @onready var area_3d: Area3D = $Area3D
 @onready var smoke: Node3D = $Smoke
-@onready var you_won: Node2D = $"../YouWon"
+@onready var you_won: Control = $"../YouWon"
+@onready var spacebar_ui: Control = $"../SpacebarUI"
 
 signal size_changed(player_size: float)
 
@@ -32,8 +33,13 @@ func _physics_process(_delta: float) -> void:
 			camera_rig.shake()
 		move_force = 100
 		jump(0)
+		spacebar_ui.visible = false
 		return
-
+	if(player_size > 1.5):
+		spacebar_ui.visible = true
+	else:
+		spacebar_ui.visible = false
+	
 	var input_vector = Vector2.ZERO
 	
 	if Input.is_action_pressed("move_forward"):
