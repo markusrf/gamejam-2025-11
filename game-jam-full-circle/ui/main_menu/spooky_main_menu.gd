@@ -6,8 +6,3 @@ extends Node3D
 func _ready() -> void:
 	var tween = create_tween()
 	tween.tween_property(directional_light_3d, "light_energy", 0.04, 5)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

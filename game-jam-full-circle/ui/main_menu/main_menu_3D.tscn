@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dvk1d08xe50i2"]
 
-[ext_resource type="Script" uid="uid://bjxtpcd136ie1" path="res://ui/spooky_main_menu.gd" id="1_38k23"]
-[ext_resource type="PackedScene" uid="uid://cbg78obghchom" path="res://ui/main_menu.tscn" id="1_tr4jb"]
+[ext_resource type="Script" uid="uid://bjxtpcd136ie1" path="res://ui/main_menu/spooky_main_menu.gd" id="1_38k23"]
+[ext_resource type="PackedScene" uid="uid://cbg78obghchom" path="res://ui/main_menu/main_menu.tscn" id="1_tr4jb"]
 [ext_resource type="PackedScene" uid="uid://bvo6q1je85xvc" path="res://assets/frog.blend" id="3_cx827"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_btkj3"]

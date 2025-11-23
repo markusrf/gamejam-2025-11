@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cbg78obghchom"]
 
-[ext_resource type="Script" uid="uid://5dt6hloanu57" path="res://ui/button.gd" id="1_t7e0r"]
+[ext_resource type="Script" uid="uid://5dt6hloanu57" path="res://ui/main_menu/button.gd" id="1_t7e0r"]
 
 [node name="main_menu" type="Node2D"]
 
