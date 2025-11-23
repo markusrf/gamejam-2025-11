@@ -132,3 +132,21 @@ func jump(shrink: float):
 	#apply_central_force(force)
 	player_size -= shrink
 	set_size()
+	
+	
+# Unused
+func fun_jump(strength: float):
+	smoke.visible = true
+
+	# Forward direction along player's +Z
+	var forward = global_transform.basis.z.normalized()  # use +Z instead of -Z
+	
+	# Combine forward and upward motion
+	var jump_force = forward * move_force + Vector3.UP * move_force
+
+	# Apply the force proportional to mass
+	apply_central_force(jump_force * mass)
+
+	# Shrink player if needed
+	player_size -= strength
+	set_size()
