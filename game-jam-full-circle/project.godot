@@ -19,6 +19,7 @@ config/icon="res://assets/icon.svg"
 
 MusicController="*res://music_controller/music_controller.tscn"
 GlobalLevel="*res://global_level.tscn"
+SfxController="*res://sfx_controller/SfxController.tscn"
 
 [global_group]
 

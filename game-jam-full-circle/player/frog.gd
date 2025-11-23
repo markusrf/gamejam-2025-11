@@ -19,9 +19,12 @@ var win: bool = false
 func _ready():
 	area_3d.connect("body_entered", _on_body_entered)
 	set_size()
+	SfxController.init_player()
 
 func _physics_process(_delta: float) -> void:
 	if (player_size >= 100):
+		if win != true:
+			SfxController.win()
 		win = true
 		you_won.visible = true
 	if (win):
@@ -45,6 +48,10 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_pressed("jump"):
 		if(player_size > 1.5):
 			jump(0.1)
+	if Input.is_action_just_pressed("jump"):
+		SfxController.start_jump()
+	if Input.is_action_just_released("jump"):
+		SfxController.stop_jump()
 	
 	if input_vector.length() > 0:
 		input_vector = input_vector.normalized()
@@ -99,6 +106,7 @@ func grow_player(body):
 	if player_size >= eatable_size:
 		player_size += body.eat_value
 		set_size()
+		SfxController.eat_fly()
 		body.queue_free()
 
 
