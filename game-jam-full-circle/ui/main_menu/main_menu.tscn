@@ -254,6 +254,13 @@ text = "Level 6 - HARD"
 script = ExtResource("2_mu8pm")
 level_num = 13.0
 
+[node name="level14" type="Button" parent="level_select/CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Level 7 - HARD"
+script = ExtResource("2_mu8pm")
+level_num = 14.0
+
 [node name="MarginContainer" type="MarginContainer" parent="level_select/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 50
@@ -278,4 +285,5 @@ text = "Back"
 [connection signal="pressed" from="level_select/CenterContainer/VBoxContainer/GridContainer/level11" to="level_select/CenterContainer/VBoxContainer/GridContainer/level11" method="_on_pressed"]
 [connection signal="pressed" from="level_select/CenterContainer/VBoxContainer/GridContainer/level12" to="level_select/CenterContainer/VBoxContainer/GridContainer/level12" method="_on_pressed"]
 [connection signal="pressed" from="level_select/CenterContainer/VBoxContainer/GridContainer/level13" to="level_select/CenterContainer/VBoxContainer/GridContainer/level13" method="_on_pressed"]
+[connection signal="pressed" from="level_select/CenterContainer/VBoxContainer/GridContainer/level14" to="level_select/CenterContainer/VBoxContainer/GridContainer/level14" method="_on_pressed"]
 [connection signal="pressed" from="level_select/CenterContainer/VBoxContainer/back" to="." method="_on_back_pressed"]
