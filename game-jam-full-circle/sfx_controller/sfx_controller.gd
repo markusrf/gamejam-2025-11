@@ -20,8 +20,8 @@ func _ready() -> void:
 
 
 
-func _get_audio_node(name: String) -> AudioStreamPlayer:
-	return $SFX.get_node(name)
+func _get_audio_node(name2: String) -> AudioStreamPlayer:
+	return $SFX.get_node(name2)
 
 func _play(player: String):
 	var p = _get_audio_node(player)
