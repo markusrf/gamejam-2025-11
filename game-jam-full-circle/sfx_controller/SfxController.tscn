@@ -66,7 +66,7 @@ bus = &"SFX"
 
 [node name="Eat" type="AudioStreamPlayer" parent="SFX"]
 stream = SubResource("AudioStreamRandomizer_wv8k0")
-bus = &"SFX"
+bus = &"SFX High"
 
 [node name="Stretch" type="AudioStreamPlayer" parent="SFX"]
 stream = SubResource("AudioStreamRandomizer_mj5rg")
@@ -78,12 +78,12 @@ bus = &"SFX"
 
 [node name="Jump1" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("2_6q72b")
-bus = &"Jump1"
+bus = &"SFX High"
 
 [node name="Jump2" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("3_v6807")
-bus = &"Jump2"
+bus = &"SFX High"
 
 [node name="Jump3" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("4_qqwu8")
-bus = &"Jump3"
+bus = &"SFX"
