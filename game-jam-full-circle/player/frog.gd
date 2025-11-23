@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-@export var move_force: float = 20.0
+@export var move_force: float = 15.0
 @export var torque_strength: float = 5.0
 @export var torque_multiplier: float = 5.0
 @export var max_angular_speed: float = 10.0
@@ -40,7 +40,7 @@ func _physics_process(_delta: float) -> void:
 		input_vector.x -= 1.0
 	smoke.visible = false
 	if Input.is_action_pressed("jump"):
-		if(player_size > 5):
+		if(player_size > 1.5):
 			jump(0.1)
 	
 	if input_vector.length() > 0:
@@ -87,6 +87,10 @@ func set_size() -> void:
 
 func jump(shrink: float):
 	smoke.visible = true
-	apply_central_force(Vector3.UP * move_force * 20)
+	#var force = Vector3.UP * move_force * player_size
+	#print_debug(force)
+	var accel := Vector3(0, move_force, 0)
+	apply_central_force(accel * mass)
+	#apply_central_force(force)
 	player_size -= shrink
 	set_size()
