@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://bltblbbvqd1la"]
+
+[ext_resource type="Shader" uid="uid://dw48ww2soqb76" path="res://assets/ocean.gdshader" id="1_wetts"]
+[ext_resource type="Texture2D" uid="uid://inf1pnikdudx" path="res://assets/deathstar.jpg" id="2_00014"]
+[ext_resource type="PackedScene" uid="uid://djgj0s2yacomg" path="res://assets/Island.blend" id="3_g4tgr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dg0hd"]
+render_priority = 0
+shader = ExtResource("1_wetts")
+shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
+shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
+shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(200, 200)
+shader_parameter/height = 2.0
+shader_parameter/wave_size = Vector2(2, 2)
+shader_parameter/wave_speed = 1.5
+shader_parameter/wave_movement = 0.05
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dm4p5"]
+material = SubResource("ShaderMaterial_dg0hd")
+size = Vector2(1000, 1000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pk5nr"]
+albedo_texture = ExtResource("2_00014")
+
+[sub_resource type="SphereMesh" id="SphereMesh_poig3"]
+radius = 100.0
+height = 200.0
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2eiut"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_3fp6m"]
+sky_material = SubResource("ProceduralSkyMaterial_2eiut")
+
+[sub_resource type="Environment" id="Environment_oqxhg"]
+background_mode = 2
+sky = SubResource("Sky_3fp6m")
+glow_enabled = true
+
+[node name="Environment" type="Node3D"]
+
+[node name="Ocean" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.021378, 0, -12.466347)
+mesh = SubResource("PlaneMesh_dm4p5")
+
+[node name="DeathStar" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.9914359, 0.02919203, -0.12728918, -0.0713092, 0.69554883, 0.71493137, 0.10940605, 0.71788573, -0.6875104, 132.07104, 798.9998, -471.8388)
+material_override = SubResource("StandardMaterial3D_pk5nr")
+mesh = SubResource("SphereMesh_poig3")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="DeathStar"]
+transform = Transform3D(0.7346468, 0.6423603, 0.21832958, 0.59219724, -0.45011103, -0.66835797, -0.3310541, 0.6203011, -0.7110767, 59.565033, -101.5979, -162.99927)
+light_energy = 100.0
+spot_range = 336.22687
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_oqxhg")
+
+[node name="Island" parent="." instance=ExtResource("3_g4tgr")]
+transform = Transform3D(-0.20193262, 0, 0.97939944, 0, 1, 0, -0.97939944, 0, -0.20193262, -43.57219, -0.38588738, -35.154236)
+
+[node name="Island2" parent="." instance=ExtResource("3_g4tgr")]
+transform = Transform3D(-0.89128375, 0, -0.45344606, 0, 1, 0, 0.45344606, 0, -0.89128375, -19.600176, -0.27282548, -142.48016)
+
+[node name="Island3" parent="." instance=ExtResource("3_g4tgr")]
+transform = Transform3D(0.62211835, 0, -0.78292316, 0, 1, 0, 0.78292316, 0, 0.62211835, 107.86337, -0.14964509, -133.26569)
