@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://h1wklqb34osx"]
+[gd_scene load_steps=7 format=3 uid="uid://h1wklqb34osx"]
 
 [ext_resource type="PackedScene" uid="uid://bxy6c7rmssnpy" path="res://player/frog.tscn" id="1_bk5nh"]
 [ext_resource type="Script" uid="uid://tjc5yefianep" path="res://player/restart.gd" id="1_yw30f"]
 [ext_resource type="Script" uid="uid://bssh2lyga363e" path="res://player/camera_rig.gd" id="2_4idhk"]
 [ext_resource type="PhysicsMaterial" uid="uid://clx3m07wn12vw" path="res://player/frog_material.tres" id="2_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://d37ukitu5hgms" path="res://ui/you_won.tscn" id="2_qjkh3"]
+[ext_resource type="Script" uid="uid://dbrep0rr7gixb" path="res://player/polygon_2d.gd" id="6_g6k8r"]
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_yw30f")
@@ -24,3 +25,10 @@ target = NodePath("../Frog")
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig"]
 transform = Transform3D(1, 0, 0, 0, 0.98456436, 0.17502306, 0, -0.17502306, 0.98456436, 0, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer"]
+script = ExtResource("6_g6k8r")
+
+[connection signal="size_changed" from="Frog" to="CanvasLayer/Polygon2D" method="_on_frog_size_changed"]
