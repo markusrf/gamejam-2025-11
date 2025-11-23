@@ -1,0 +1,111 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1vkrimmmp8x"]
+
+[ext_resource type="PackedScene" uid="uid://q5l8bxt246nv" path="res://interactible/eatables/small_eatable.tscn" id="1_1cp3e"]
+[ext_resource type="PackedScene" uid="uid://bltblbbvqd1la" path="res://environment.tscn" id="2_hg6ws"]
+[ext_resource type="PackedScene" uid="uid://bigtphhx1swvk" path="res://player/player-hard.tscn" id="2_pan61"]
+[ext_resource type="PackedScene" uid="uid://l10v7def3slf" path="res://interactible/eatable_gold.tscn" id="3_0aqyn"]
+
+[node name="LayinPipe" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(-0.3347938, 0, 0.94229144, 0, 1, 0, -0.94229144, 0, -0.3347938, 0, 0, 0)
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 1.5, -1.0000001, 0)
+use_collision = true
+radius = 3.0
+height = 5.0
+sides = 18
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-2.809714e-08, 0.64278764, -0.76604444, -1, -4.371139e-08, 0, -3.3484866e-08, 0.76604444, 0.64278764, 10, -1.0000001, 3)
+use_collision = true
+radius = 3.0
+height = 5.0
+sides = 18
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-1.847323e-08, 0.42261827, -0.90630776, -1, -4.371139e-08, 0, -3.961597e-08, 0.90630776, 0.42261827, 11.8, -1.0000001, 5.6)
+use_collision = true
+radius = 3.0
+height = 5.0
+sides = 18
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 1.5, -1.0000001, 0)
+use_collision = true
+radius = 3.0
+height = 5.0
+sides = 18
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-1.8473227e-08, 0.42261827, -0.9063078, -0.8660254, 0.45315388, 0.21130913, 0.49999997, 0.7848856, 0.36599815, 14.3, -5.9604645e-08, 11)
+use_collision = true
+radius = 3.0
+height = 5.0
+sides = 18
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-0.43327296, 0.37301606, -0.8204473, -0.89951897, -0.23557647, 0.3679256, -0.056036, 0.8974198, 0.43760365, 16.9, -5.9604645e-08, 16)
+use_collision = true
+radius = 3.0
+height = 5.0
+sides = 18
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-0.10397663, 0.23274885, -0.96696275, -0.85051346, 0.48318088, 0.20775685, 0.51557314, 0.8440164, 0.14771616, 17.493795, -7.5194063, 22.053728)
+use_collision = true
+radius = 3.949
+height = 8.665
+sides = 18
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-0.10397716, 0.23274821, -0.96696323, -0.8505134, 0.48318133, 0.20775674, 0.5155735, 0.84401655, 0.14771584, 17.562515, -7.378523, 22.308636)
+operation = 2
+use_collision = true
+radius = 3.0
+height = 9.281
+sides = 18
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-0.50947607, -0.2594226, -0.82044727, -0.12319353, -0.9216583, 0.36792564, -0.85162044, 0.2885229, 0.43760362, 12.253601, -23.620163, 15.935904)
+use_collision = true
+radius = 6.39
+height = 8.665
+sides = 18
+cone = true
+
+[node name="CSGCylinder3D11" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-0.50947607, -0.25942266, -0.8204479, -0.12319353, -0.9216583, 0.36792564, -0.85162044, 0.28852293, 0.43760338, 12.475835, -22.83064, 15.688754)
+operation = 2
+use_collision = true
+radius = 3.95
+height = 7.559457
+sides = 18
+cone = true
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.222196e-08, 0.9659258, -0.25881904, -1, -4.371139e-08, 0, -1.131334e-08, 0.25881904, 0.9659258, 6.2, -1.0000001, 0.6)
+use_collision = true
+radius = 3.0
+height = 5.0
+sides = 18
+
+[node name="SmallEatable" parent="." instance=ExtResource("1_1cp3e")]
+transform = Transform3D(0.9949563, 0, 0.10030952, 0, 1, 0, -0.10030952, 0, 0.9949563, 1, 2.3, 0)
+
+[node name="SmallEatable2" parent="." instance=ExtResource("1_1cp3e")]
+transform = Transform3D(0.9949563, 0, 0.10030952, 0, 1, 0, -0.10030952, 0, 0.9949563, -1.1161201, 2.1, -5.138368)
+
+[node name="SmallEatable3" parent="." instance=ExtResource("1_1cp3e")]
+transform = Transform3D(0.987016, 0, -0.16062206, 0, 1, 0, 0.16062206, 0, 0.987016, 1.318364, 2.3, -12.031999)
+
+[node name="Environment" parent="." instance=ExtResource("2_hg6ws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -37.841366, 0)
+
+[node name="Player2" parent="." instance=ExtResource("2_pan61")]
+transform = Transform3D(-0.99234706, 0, -0.12348017, 0, 1, 0, 0.12348017, 0, -0.99234706, 0, 2.6340492, 0)
+
+[node name="Eatable" parent="." instance=ExtResource("3_0aqyn")]
+transform = Transform3D(0.9666448, -0.25612065, 0, 0.25612065, 0.9666448, 0, 0, 0, 1, 10.114698, -21.883049, -15.366306)

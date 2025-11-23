@@ -1,0 +1,1001 @@
+[gd_scene load_steps=9 format=3 uid="uid://f5c74pty83uc"]
+
+[ext_resource type="PackedScene" uid="uid://bigtphhx1swvk" path="res://player/player-hard.tscn" id="1_ei3gf"]
+[ext_resource type="PackedScene" uid="uid://q5l8bxt246nv" path="res://interactible/eatables/small_eatable.tscn" id="3_dsrgs"]
+[ext_resource type="PackedScene" uid="uid://l10v7def3slf" path="res://interactible/eatable_gold.tscn" id="3_kib61"]
+[ext_resource type="PackedScene" uid="uid://bltblbbvqd1la" path="res://environment.tscn" id="4_jtip2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dsrgs"]
+friction = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6pteu"]
+size = Vector3(100, 100, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6pteu"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dsrgs"]
+height = 1.0
+radius = 1.0
+
+[node name="level-4" type="Node3D"]
+
+[node name="Player2" parent="." instance=ExtResource("1_ei3gf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2720909, 76.04515, 0)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 50, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(100, 100, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+operation = 2
+size = Vector3(95, 95, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18466187, 49.55381, 0)
+size = Vector3(100.48639, 1, 3)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60899353, -47.37256, 0)
+operation = 2
+size = Vector3(15.479462, 10, 10)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0, 1, -34.644894, -45.749733, 0)
+size = Vector3(49.614258, 24.285156, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, 35.336155, -46.60004, 0)
+size = Vector3(48.170044, 25.41504, 1)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48.42817, 0)
+operation = 2
+radius = 1.0
+height = 4.349121
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.89996, 48.42817, 0)
+operation = 2
+radius = 1.0
+height = 4.349121
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6106, 48.42817, 0)
+operation = 2
+radius = 1.0
+height = 4.349121
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6693, 48.42816, 0)
+operation = 2
+radius = 1.0
+height = 4.349121
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.21893, 48.42817, 0)
+operation = 2
+radius = 1.0
+height = 4.349121
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.940798, 0.3389678, 0, -0.3389678, 0.940798, 0, 0, 0, 1, -18.885418, 34.350006, -0.009399414)
+size = Vector3(7.4575195, 4.273926, 2.0959473)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.54706657, -0.83708906, 0, 0.83708906, 0.54706657, 0, 0, 0, 1, 35.09925, 38.762787, 0.02798462)
+size = Vector3(12.544067, 4.273926, 2.0922241)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.64104784, 0.76750094, 0, -0.76750094, 0.64104784, 0, 0, 0, 1, 6.911048, 27.237679, 0.04260254)
+size = Vector3(8.515686, 4.265503, 2.1931152)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.5735907, 0.81914204, 0, -0.81914204, 0.5735907, 0, 0, 0, 1, -17.173872, -6.4574127, 0.113098145)
+size = Vector3(17.7547, 3.908081, 2.2554932)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.81542087, -0.57886845, 0, 0.57886845, 0.81542087, 0, 0, 0, 1, 24.80756, -6.742523, 0.113098145)
+size = Vector3(18.236237, 4.392517, 2.2554932)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.99994445, 0.010541618, 0, -0.010541618, 0.99994445, 0, 0, 0, 1, 26.005268, 14.16275, 0)
+size = Vector3(12.197723, 6.5429077, 1)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D/CSGBox3D11"]
+transform = Transform3D(0.9998869, 0.01073203, 0.010539888, 0.0107321795, -0.018002769, -0.99978036, -0.010539888, 0.99978036, -0.018115526, -5.384777, 2.1649475, -0.13131881)
+operation = 2
+radius = 3.5009766
+height = 1.7373047
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D/CSGBox3D11"]
+transform = Transform3D(0.9998869, 0.01073203, 0.010539888, 0.01073218, -0.01800277, -0.99978036, -0.010539888, 0.99978036, -0.018115526, 4.456583, 2.268692, -0.13131881)
+operation = 2
+radius = 3.5009766
+height = 1.7373047
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.99994445, 0.010541618, 0, -0.010541618, 0.99994445, 0, 0, 0, 1, -4.453371, 14.028358, 0)
+size = Vector3(12.197723, 6.5429077, 1)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D/CSGBox3D13"]
+transform = Transform3D(0.9998869, 0.01073203, 0.010539888, 0.0107321795, -0.018002769, -0.99978036, -0.010539888, 0.99978036, -0.018115526, -5.384777, 2.1649475, -0.13131881)
+operation = 2
+radius = 3.5009766
+height = 1.7373047
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D/CSGBox3D13"]
+transform = Transform3D(0.9998869, 0.01073203, 0.010539888, 0.01073218, -0.01800277, -0.99978036, -0.010539888, 0.99978036, -0.018115526, 4.456583, 2.268692, -0.13131881)
+operation = 2
+radius = 3.5009766
+height = 1.7373047
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.99994445, 0.010541618, 0, -0.010541618, 0.99994445, 0, 0, 0, 1, -24.379902, 15.041405, 0)
+size = Vector3(12.197723, 6.5429077, 1)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D/CSGBox3D12"]
+transform = Transform3D(0.9998869, 0.01073203, 0.010539888, 0.0107321795, -0.018002769, -0.99978036, -0.010539888, 0.99978036, -0.018115526, -5.384777, 2.1649475, -0.13131881)
+operation = 2
+radius = 3.5009766
+height = 1.7373047
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D/CSGBox3D12"]
+transform = Transform3D(0.9998869, 0.01073203, 0.010539888, 0.01073218, -0.01800277, -0.99978036, -0.010539888, 0.99978036, -0.018115526, 4.456583, 2.268692, -0.13131881)
+operation = 2
+radius = 3.5009766
+height = 1.7373047
+
+[node name="GlassWalls" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0)
+physics_material_override = SubResource("PhysicsMaterial_dsrgs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GlassWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+shape = SubResource("BoxShape3D_6pteu")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="GlassWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+shape = SubResource("BoxShape3D_6pteu")
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.506264, -21.26056, 0)
+
+[node name="Node3D" type="Node3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2194977, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D2/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="Node3D2/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.824215, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D8" type="StaticBody3D" parent="Node3D2/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.196829, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D/StaticBody3D8"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D/StaticBody3D8"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D2/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Node3D2/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Node3D2/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="Node3D2/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D/StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D/StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="Node3D2/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D/StaticBody3D6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D/StaticBody3D6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="Node3D3" type="Node3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.4504242, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D2/Node3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="Node3D2/Node3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.824215, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D3/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D3/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D8" type="StaticBody3D" parent="Node3D2/Node3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.196829, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D3/StaticBody3D8"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D3/StaticBody3D8"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D2/Node3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D3/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D3/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Node3D2/Node3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D3/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D3/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Node3D2/Node3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D3/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D3/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="Node3D2/Node3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D3/StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D3/StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="Node3D2/Node3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D3/StaticBody3D6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D3/StaticBody3D6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="Node3D7" type="Node3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -23.008766, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D2/Node3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D7/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D7/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="Node3D2/Node3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.824215, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D7/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D7/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D8" type="StaticBody3D" parent="Node3D2/Node3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.196829, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D7/StaticBody3D8"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D7/StaticBody3D8"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D2/Node3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D7/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D7/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Node3D2/Node3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D7/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D7/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Node3D2/Node3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D7/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D7/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="Node3D2/Node3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D7/StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D7/StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="Node3D2/Node3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D7/StaticBody3D6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D7/StaticBody3D6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="Node3D5" type="Node3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.570572, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D2/Node3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D5/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D5/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="Node3D2/Node3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.824215, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D5/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D5/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D8" type="StaticBody3D" parent="Node3D2/Node3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.196829, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D5/StaticBody3D8"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D5/StaticBody3D8"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D2/Node3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D5/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D5/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Node3D2/Node3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D5/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D5/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Node3D2/Node3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D5/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D5/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="Node3D2/Node3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D5/StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D5/StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="Node3D2/Node3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D5/StaticBody3D6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D5/StaticBody3D6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="Node3D2" type="Node3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4188251, 0.30911255, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D2/Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D9" type="StaticBody3D" parent="Node3D2/Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.118618, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D2/StaticBody3D9"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D2/StaticBody3D9"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="Node3D2/Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.824215, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D2/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D2/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D8" type="StaticBody3D" parent="Node3D2/Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.196829, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D2/StaticBody3D8"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D2/StaticBody3D8"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D2/Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D2/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D2/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Node3D2/Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D2/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D2/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Node3D2/Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D2/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D2/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="Node3D2/Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D2/StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D2/StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="Node3D2/Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D2/StaticBody3D6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D2/StaticBody3D6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="Node3D6" type="Node3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4188251, -18.3359, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D2/Node3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D6/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D6/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D9" type="StaticBody3D" parent="Node3D2/Node3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.118618, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D6/StaticBody3D9"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D6/StaticBody3D9"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="Node3D2/Node3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.824215, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D6/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D6/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D8" type="StaticBody3D" parent="Node3D2/Node3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.196829, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D6/StaticBody3D8"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D6/StaticBody3D8"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D2/Node3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D6/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D6/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Node3D2/Node3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D6/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D6/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Node3D2/Node3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D6/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D6/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="Node3D2/Node3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D6/StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D6/StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="Node3D2/Node3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D6/StaticBody3D6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D6/StaticBody3D6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="Node3D8" type="Node3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4188251, -27.333115, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D2/Node3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D8/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D8/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D9" type="StaticBody3D" parent="Node3D2/Node3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.118618, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D8/StaticBody3D9"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D8/StaticBody3D9"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="Node3D2/Node3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.824215, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D8/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D8/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D8" type="StaticBody3D" parent="Node3D2/Node3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.196829, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D8/StaticBody3D8"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D8/StaticBody3D8"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D2/Node3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D8/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D8/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Node3D2/Node3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D8/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D8/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Node3D2/Node3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D8/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D8/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="Node3D2/Node3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D8/StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D8/StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="Node3D2/Node3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D8/StaticBody3D6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D8/StaticBody3D6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="Node3D4" type="Node3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4188251, -7.9355927, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D2/Node3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D9" type="StaticBody3D" parent="Node3D2/Node3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.118618, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D4/StaticBody3D9"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D4/StaticBody3D9"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="Node3D2/Node3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.824215, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D4/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D2/Node3D4/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -3.8486233, 4.3778915, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D2/Node3D4/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -3.8486233, 4.3778915, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node3D2/Node3D4/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.7841702, -5.280735, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D4/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D8" type="StaticBody3D" parent="Node3D2/Node3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.196829, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D4/StaticBody3D8"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D4/StaticBody3D8"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D2/Node3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D4/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D4/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Node3D2/Node3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D4/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D4/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Node3D2/Node3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D4/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D4/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="Node3D2/Node3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D4/StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D4/StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="Node3D2/Node3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 88.23372, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2/Node3D4/StaticBody3D6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6pteu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/Node3D4/StaticBody3D6"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dsrgs")
+
+[node name="SmallEatable2" parent="." instance=ExtResource("3_dsrgs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.730974, 64.59167, -0.0799284)
+
+[node name="SmallEatable9" parent="." instance=ExtResource("3_dsrgs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9269066, 45.71652, -0.0799284)
+
+[node name="SmallEatable11" parent="." instance=ExtResource("3_dsrgs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4870884, 45.201973, -0.0799284)
+
+[node name="SmallEatable12" parent="." instance=ExtResource("3_dsrgs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.050336, 29.144814, -0.0799284)
+
+[node name="SmallEatable13" parent="." instance=ExtResource("3_dsrgs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.519799, 29.144814, -0.0799284)
+
+[node name="SmallEatable8" parent="." instance=ExtResource("3_dsrgs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7046509, 65.80544, -0.0799284)
+
+[node name="SmallEatable14" parent="." instance=ExtResource("3_dsrgs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.267365, 68.50127, -0.0799284)
+
+[node name="SmallEatable15" parent="." instance=ExtResource("3_dsrgs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.13408, 64.828804, -0.0799284)
+
+[node name="SmallEatable6" parent="." instance=ExtResource("3_dsrgs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1649208, 64.0315, -0.0799284)
+
+[node name="SmallEatable7" parent="." instance=ExtResource("3_dsrgs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5223417, 59.043438, -0.0799284)
+
+[node name="SmallEatable4" parent="." instance=ExtResource("3_dsrgs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.544117, 59.63302, -0.0799284)
+
+[node name="SmallEatable5" parent="." instance=ExtResource("3_dsrgs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.34572, 47.732212, -0.0799284)
+
+[node name="SmallEatable10" parent="." instance=ExtResource("3_dsrgs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9711456, 49.822742, -0.0799284)
+
+[node name="SmallEatable16" parent="." instance=ExtResource("3_dsrgs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.138818, 44.988415, -0.0799284)
+
+[node name="SmallEatable3" parent="." instance=ExtResource("3_dsrgs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.741173, 59.072044, -0.0799284)
+
+[node name="Eatable_Gold" parent="." instance=ExtResource("3_kib61")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20339644, 25.733944, -0.08560443)
+
+[node name="Environment" parent="." instance=ExtResource("4_jtip2")]

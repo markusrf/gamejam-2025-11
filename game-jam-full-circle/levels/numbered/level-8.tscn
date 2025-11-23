@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://d305cjwarftyd"]
+
+[ext_resource type="PackedScene" uid="uid://bpaa2ub1y32gm" path="res://interactible/eatables/eatable_box.tscn" id="3_fdkg3"]
+[ext_resource type="PackedScene" uid="uid://l10v7def3slf" path="res://interactible/eatable_gold.tscn" id="4_fabwm"]
+[ext_resource type="PackedScene" uid="uid://bigtphhx1swvk" path="res://player/player-hard.tscn" id="4_lh0u1"]
+[ext_resource type="PackedScene" uid="uid://bltblbbvqd1la" path="res://environment.tscn" id="4_xm2ae"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jirdo"]
+albedo_color = Color(0.22051021, 0.16014993, 0.22061938, 1)
+
+[node name="Level1" type="Node3D"]
+
+[node name="Eatable" parent="." instance=ExtResource("3_fdkg3")]
+transform = Transform3D(1.425, 0, 0, 0, 1.425, 0, 0, 0, 1.425, -0.46888578, 1.5035846, -8.474678)
+gravity_scale = 0.0
+eat_value = 10.0
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = SubResource("StandardMaterial3D_jirdo")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21136475, 0, 10.559814)
+size = Vector3(8.934692, 1, 78.88037)
+material = SubResource("StandardMaterial3D_jirdo")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99995345, -0.009651482, 0, 0.009651482, 0.99995345, -0.25452995, -0.44878876, -19.752691)
+size = Vector3(9.852516, 5, 17.837524)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99995345, -0.009651482, 0, 0.009651482, 0.99995345, -8.045255, 1.6886024, -6.34691)
+visible = false
+size = Vector3(7.244129, 9.769714, 42.13983)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99995345, -0.009651482, 0, 0.009651482, 0.99995345, 8.0013075, 1.2846909, -6.350808)
+visible = false
+size = Vector3(7.244129, 8.961853, 42.13983)
+
+[node name="Eatable2" parent="." instance=ExtResource("3_fdkg3")]
+transform = Transform3D(-0.66671467, 0, 0.74531305, 0, 1, 0, -0.74531305, 0, -0.66671467, 1.26688, 1.064317, -5.849532)
+gravity_scale = 0.0
+eat_value = 6.0
+
+[node name="Eatable3" parent="." instance=ExtResource("3_fdkg3")]
+transform = Transform3D(0.48144487, 0, 0.6699521, 0, 0.825, 0, -0.6699521, 0, 0.48144487, -0.3902483, 1.064317, -3.267159)
+gravity_scale = 0.0
+eat_value = 4.0
+
+[node name="Eatable_Gold" parent="." instance=ExtResource("4_fabwm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2635641, 2.5218108, -23.575937)
+
+[node name="Player" parent="." instance=ExtResource("4_lh0u1")]
+transform = Transform3D(-0.99845827, 0, -0.055507876, 0, 1, 0, 0.055507876, 0, -0.99845827, 0, 0.98934317, 0)
+
+[node name="Environment" parent="." instance=ExtResource("4_xm2ae")]

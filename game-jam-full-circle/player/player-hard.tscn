@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://bigtphhx1swvk"]
+
+[ext_resource type="Script" uid="uid://tjc5yefianep" path="res://player/restart.gd" id="1_pphwv"]
+[ext_resource type="PackedScene" uid="uid://ce6slkclwox3w" path="res://ui/spacebar_ui.tscn" id="2_406r7"]
+[ext_resource type="PackedScene" uid="uid://d37ukitu5hgms" path="res://ui/you_won.tscn" id="3_duy5q"]
+[ext_resource type="PackedScene" uid="uid://bxy6c7rmssnpy" path="res://player/frog.tscn" id="4_ehhuf"]
+[ext_resource type="PhysicsMaterial" uid="uid://clx3m07wn12vw" path="res://player/frog_material.tres" id="5_f65rg"]
+[ext_resource type="Script" uid="uid://mdb1ow1uo04m" path="res://player/frog-hard.gd" id="6_406r7"]
+[ext_resource type="Script" uid="uid://bssh2lyga363e" path="res://player/camera_rig.gd" id="6_es02m"]
+[ext_resource type="Script" path="res://player/polygon_2d.gd" id="7_5t7di"]
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_pphwv")
+
+[node name="SpacebarUI" parent="." instance=ExtResource("2_406r7")]
+visible = false
+
+[node name="YouWon" parent="." instance=ExtResource("3_duy5q")]
+visible = false
+
+[node name="Frog" parent="." instance=ExtResource("4_ehhuf")]
+physics_material_override = ExtResource("5_f65rg")
+script = ExtResource("6_406r7")
+torque_multiplier = 3.0
+
+[node name="CameraRig" type="Node3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.9053466, 0.42467353, 0, -0.42467353, 0.9053466, 0, 0.90826845, 1.5662088)
+script = ExtResource("6_es02m")
+target = NodePath("../Frog")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 0.98456436, 0.17502306, 0, -0.17502306, 0.98456436, 0, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer"]
+script = ExtResource("7_5t7di")
+
+[connection signal="size_changed" from="Frog" to="CanvasLayer/Polygon2D" method="_on_frog_size_changed"]

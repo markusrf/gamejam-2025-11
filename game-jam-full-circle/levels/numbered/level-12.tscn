@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxxbmkm4ns5k8"]
+
+[ext_resource type="PackedScene" uid="uid://q5l8bxt246nv" path="res://interactible/eatables/small_eatable.tscn" id="1_tx6qw"]
+[ext_resource type="PackedScene" uid="uid://bigtphhx1swvk" path="res://player/player-hard.tscn" id="3_2rvut"]
+[ext_resource type="PackedScene" uid="uid://l10v7def3slf" path="res://interactible/eatable_gold.tscn" id="3_fo8wh"]
+[ext_resource type="PackedScene" uid="uid://bltblbbvqd1la" path="res://environment.tscn" id="4_6yasm"]
+
+[node name="Bridges" type="Node3D"]
+
+[node name="SmallEatable" parent="." instance=ExtResource("1_tx6qw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.358014, 0.94681597, 10.525592)
+
+[node name="SmallEatable2" parent="." instance=ExtResource("1_tx6qw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.061565, 1.7301266, 10.525592)
+
+[node name="SmallEatable3" parent="." instance=ExtResource("1_tx6qw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7851005, -2.5545127, 17.7584)
+
+[node name="SmallEatable4" parent="." instance=ExtResource("1_tx6qw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4886513, -1.7712021, 17.7584)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3635254, -6.848999, -1.6115723)
+size = Vector3(9.596191, 14.697998, 7.5063477)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.4979396, 3.0659626)
+polygon = PackedVector2Array(-0.7995906, -5.989094, 0, 1, 1, 1, 0.8319254, -3.128855)
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 0.45302603, 0.89149725, 0, -0.89149725, 0.45302603, -4.0396476, 0.07185471, 3.0659626)
+polygon = PackedVector2Array(-0.7995906, -5.989094, 0, 1, 1, 1, 0.8319254, -3.128855)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.533489, -0.3243078, 0.7811619, 0.012271456, 0.9264405, 0.37624106, -0.84571785, -0.19113445, 0.4982256, 1.6377068, 0.8135731, 8.906026)
+size = Vector3(1.8809891, 0.98132324, 4.3547363)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.79495573, -0.29847515, -0.52816474, 0.07431346, 0.9119528, -0.40350908, 0.60209894, 0.28152215, 0.7471428, -2.5238347, -2.2540529, 7.9298882)
+size = Vector3(3.4383545, 1, 2.8669434)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.281951, -1.876516, 9)
+size = Vector3(4.479004, 1, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.8742895, -0.48540485, 0, 0.48540485, 0.8742895, 0, 0, 0, 1, 3.6518729, -1.5069393, 9)
+size = Vector3(1.0179443, 0.40124512, 1)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.8045631, -0.36313745, -0.46990383, 0.41136768, 0.9114696, -3.7133694e-05, 0.42831647, -0.19327334, 0.8827176, 4.1939735, 1.3359714, 10.56309)
+radius = 0.932
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D/CSGCylinder3D"]
+transform = Transform3D(1, 0, -5.9604645e-08, -3.7252903e-08, 1, 2.9802322e-08, 0, 0, 1, 0, 0, 0)
+operation = 2
+radius = 0.642
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.030649044, -0.013873375, -0.9994339, 0.887198, -0.46016428, 0.03359469, -0.46036977, -0.8877255, -0.001795196, 7.864411, 0.0044591576, 14.438972)
+radius = 0.932
+height = 4.1865234
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D/CSGCylinder3D2"]
+transform = Transform3D(0.9999999, 1.2218952e-06, -6.1583705e-08, 5.9604645e-08, 0.9999994, 3.085006e-08, -6.519258e-09, 1.5716068e-08, 1, -9.536743e-07, -0.36755276, 9.536743e-07)
+operation = 2
+radius = 0.642
+height = 4.9484863
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.030649038, -0.013873373, -0.9994339, 0.9017849, 0.43164173, 0.021662734, 0.43109685, -0.90193856, 0.025740083, 7.864411, -2.7422192, 18.482777)
+radius = 0.932
+height = 4.1865234
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D/CSGCylinder3D3"]
+transform = Transform3D(1.000002, 1.0430813e-06, -6.239861e-08, 1.4901161e-07, 1, 2.9802322e-08, -2.3283064e-08, 0, 1, 0.46748924, -0.1437912, 0.011229992)
+operation = 2
+radius = 0.83203125
+height = 4.9484863
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.24192, -1.889039, 10.703704)
+size = Vector3(4.8345337, 1, 4.13855)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8477159, -3.7789345e-05, 0.42584133)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8760972, -0.06870842, -0.61609936)
+operation = 2
+size = Vector3(4.9432373, 1.2001953, 1)
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.326698, -5.092705, 29.251461)
+inner_radius = 6.026
+outer_radius = 9.397
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.326698, -7.4847617, 29.251461)
+inner_radius = 3.662
+outer_radius = 5.712
+
+[node name="CSGTorus3D3" type="CSGTorus3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.326698, -10.239422, 29.251461)
+inner_radius = 1.735
+outer_radius = 3.932
+
+[node name="CSGTorus3D4" type="CSGTorus3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.326698, -12.030715, 29.251461)
+inner_radius = 0.726
+outer_radius = 2.39
+
+[node name="Eatable_Gold" parent="." instance=ExtResource("3_fo8wh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.311093, -14.735758, 29.212463)
+eat_value = 1.0
+
+[node name="Player2" parent="." instance=ExtResource("3_2rvut")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4197044, 0)
+
+[node name="Environment" parent="." instance=ExtResource("4_6yasm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -24.432938, 0)
