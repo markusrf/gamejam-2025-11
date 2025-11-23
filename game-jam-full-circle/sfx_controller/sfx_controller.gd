@@ -51,11 +51,13 @@ func _fade_out(player: String, duration: float = 1.0) -> Tween:
 ### Public functions
 
 func init_player():
-	print("SFX: init player")
+	#print("SFX: init player")
 	stop_jump()
 
 func start_jump():
-	print("SFX: start jump")
+	#print("SFX: start jump")
+	if is_jumping:
+		return
 	var player = jump_players.pick_random()
 	current_jump_player = player
 	is_jumping = true
@@ -66,12 +68,12 @@ func start_jump():
 
 func stop_jump():
 	if is_jumping:
-		print("SFX: stop jump")
+		#print("SFX: stop jump")
 		is_jumping = false
 		current_jump_tweener = _fade_out(current_jump_player, 0.6)
 
 func eat_fly():
-	print("SFX: eat fly")
+	#print("SFX: eat fly")
 	var player = "FlyDeath"
 	if (randf() > 0.5):
 		_play("Stretch")
@@ -84,10 +86,10 @@ func eat_fly():
 	current_fly_death_tweener = _fade_out(player, 2.0)
 
 func press_button():
-	print("SFX: pressed button")
+	#print("SFX: pressed button")
 	_play("Button")
 
 func win():
-	print("SFX: win")
-	stop_jump()
+	#print("SFX: win")
+	#stop_jump()
 	start_jump()
