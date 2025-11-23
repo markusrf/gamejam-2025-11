@@ -8,12 +8,12 @@
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="Sky" id="Sky_jirdo"]
+[sub_resource type="Sky" id="Sky_3fp6m"]
 sky_material = SubResource("ProceduralSkyMaterial_vn7o3")
 
 [sub_resource type="Environment" id="Environment_bt44k"]
 background_mode = 2
-sky = SubResource("Sky_jirdo")
+sky = SubResource("Sky_3fp6m")
 tonemap_mode = 2
 glow_enabled = true
 glow_intensity = 8.0
@@ -29,6 +29,14 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_bt44k")
+
+[node name="Player" parent="." instance=ExtResource("1_vn7o3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2991502, 0)
+
+[node name="Eatable" parent="." instance=ExtResource("2_jirdo")]
+transform = Transform3D(1.425, 0, 0, 0, 1.425, 0, 0, 0, 1.425, -0.46888578, 1.5035846, -8.474678)
+gravity_scale = 0.0
+eat_value = 10.0
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 material_override = SubResource("StandardMaterial3D_jirdo")
@@ -50,14 +58,6 @@ size = Vector3(7.244129, 9.769714, 42.13983)
 [node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 0.99995345, -0.009651482, 0, 0.009651482, 0.99995345, 8.0013075, 1.2846909, -6.350808)
 size = Vector3(7.244129, 8.961853, 42.13983)
-
-[node name="Player" parent="." instance=ExtResource("1_vn7o3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2991502, 0)
-
-[node name="Eatable" parent="." instance=ExtResource("2_jirdo")]
-transform = Transform3D(1.425, 0, 0, 0, 1.425, 0, 0, 0, 1.425, -0.46888578, 1.5035846, -8.474678)
-gravity_scale = 0.0
-eat_value = 10.0
 
 [node name="Eatable2" parent="." instance=ExtResource("2_jirdo")]
 transform = Transform3D(-0.66671467, 0, 0.74531305, 0, 1, 0, -0.74531305, 0, -0.66671467, 1.26688, 1.064317, -5.849532)
