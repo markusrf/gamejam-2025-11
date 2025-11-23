@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3wd5as71e0kx"]
+[gd_scene load_steps=10 format=3 uid="uid://c3wd5as71e0kx"]
 
 [ext_resource type="Script" uid="uid://bqjlhk3cea6q6" path="res://interactible/pressure_plate.gd" id="1_6368n"]
+[ext_resource type="Script" uid="uid://b1kc20cwva06q" path="res://interactible/pressure_plate_connector.gd" id="1_iyojo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k6yph"]
 size = Vector3(1, 0.2, 1)
@@ -25,6 +26,7 @@ size = Vector3(1.2, 0.1, 1.2)
 size = Vector3(1.2, 0.1, 1.2)
 
 [node name="PressurePlate" type="Node3D"]
+script = ExtResource("1_iyojo")
 
 [node name="Area3D" type="Area3D" parent="."]
 script = ExtResource("1_6368n")
