@@ -1,19 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://l10v7def3slf"]
 
-[ext_resource type="Script" uid="uid://coyv5do56blkr" path="res://interactible/eatable_box.gd" id="1_7g5hl"]
+[ext_resource type="Script" uid="uid://coyv5do56blkr" path="res://interactible/eatables/eatable_box.gd" id="1_7g5hl"]
 [ext_resource type="PackedScene" uid="uid://mw5y7w22230p" path="res://assets/fly_gold.blend" id="2_7g5hl"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4rgj"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7g5hl"]
 radius = 0.235
 height = 0.792
 
-[node name="Eatable" type="RigidBody3D" groups=["eatable"]]
-collision_layer = 2
-collision_mask = 2
+[node name="Eatable_Gold" type="RigidBody3D" groups=["eatable"]]
+collision_layer = 3
+collision_mask = 3
+gravity_scale = 0.0
 script = ExtResource("1_7g5hl")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_g4rgj")
+eat_value = 100.0
+newScale = 2.0
 
 [node name="fly_gold" parent="." instance=ExtResource("2_7g5hl")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_7g5hl")

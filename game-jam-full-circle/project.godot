@@ -18,8 +18,8 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 MusicController="*res://music_controller/music_controller.tscn"
-GlobalLevel="*res://global_level.tscn"
 SfxController="*res://sfx_controller/SfxController.tscn"
+GlobalLevel="*res://global_level.tscn"
 
 [global_group]
 
