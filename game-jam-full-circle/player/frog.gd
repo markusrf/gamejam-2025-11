@@ -20,6 +20,7 @@ var win: bool = false
 func _ready():
 	area_3d.connect("body_entered", _on_body_entered)
 	set_size()
+	win = false
 	SfxController.init_player()
 
 func _physics_process(_delta: float) -> void:

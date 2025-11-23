@@ -89,4 +89,5 @@ func press_button():
 
 func win():
 	print("SFX: win")
+	stop_jump()
 	start_jump()
