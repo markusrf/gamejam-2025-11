@@ -1,34 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgsqciiij88ft"]
+[gd_scene load_steps=6 format=3 uid="uid://bgsqciiij88ft"]
 
 [ext_resource type="PackedScene" uid="uid://h1wklqb34osx" path="res://player/player.tscn" id="1_04ql5"]
 [ext_resource type="PackedScene" uid="uid://bpaa2ub1y32gm" path="res://interactible/eatables/eatable_box.tscn" id="2_eb2gl"]
 [ext_resource type="PackedScene" uid="uid://l10v7def3slf" path="res://interactible/eatable_gold.tscn" id="3_51g14"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qssy7"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_jirdo"]
-sky_material = SubResource("ProceduralSkyMaterial_qssy7")
-
-[sub_resource type="Environment" id="Environment_04ql5"]
-background_mode = 2
-sky = SubResource("Sky_jirdo")
-tonemap_mode = 2
-glow_enabled = true
-glow_intensity = 8.0
+[ext_resource type="PackedScene" uid="uid://bltblbbvqd1la" path="res://environment.tscn" id="4_eb2gl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eb2gl"]
 albedo_color = Color(0.22051021, 0.16014993, 0.22061938, 1)
 
 [node name="level-2" type="Node3D"]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_04ql5")
 
 [node name="Player" parent="." instance=ExtResource("1_04ql5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25.937815, 11.059472)
@@ -75,3 +55,5 @@ size = Vector3(13, 75.811646, 10.776855)
 
 [node name="Eatable_Gold" parent="." instance=ExtResource("3_51g14")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10956109, 15.504962, -43.420757)
+
+[node name="Environment" parent="." instance=ExtResource("4_eb2gl")]

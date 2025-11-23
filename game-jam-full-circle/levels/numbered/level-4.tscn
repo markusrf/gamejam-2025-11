@@ -1,22 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://f5c74pty83uc"]
+[gd_scene load_steps=9 format=3 uid="uid://f5c74pty83uc"]
 
 [ext_resource type="PackedScene" uid="uid://h1wklqb34osx" path="res://player/player.tscn" id="1_6pteu"]
 [ext_resource type="PackedScene" uid="uid://q5l8bxt246nv" path="res://interactible/eatables/small_eatable.tscn" id="3_dsrgs"]
 [ext_resource type="PackedScene" uid="uid://l10v7def3slf" path="res://interactible/eatable_gold.tscn" id="3_kib61"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kib61"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_jirdo"]
-sky_material = SubResource("ProceduralSkyMaterial_kib61")
-
-[sub_resource type="Environment" id="Environment_ua71r"]
-background_mode = 2
-sky = SubResource("Sky_jirdo")
-tonemap_mode = 2
-glow_enabled = true
-glow_intensity = 8.0
+[ext_resource type="PackedScene" uid="uid://bltblbbvqd1la" path="res://environment.tscn" id="4_kib61"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dsrgs"]
 friction = 0.0
@@ -34,13 +21,6 @@ height = 1.0
 radius = 1.0
 
 [node name="level-4" type="Node3D"]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_ua71r")
 
 [node name="Player" parent="." instance=ExtResource("1_6pteu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0275764, 77.61303, 0)
@@ -1017,3 +997,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.741173, 59.072044, -0.0799
 
 [node name="Eatable_Gold" parent="." instance=ExtResource("3_kib61")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25.741238, 0)
+
+[node name="Environment" parent="." instance=ExtResource("4_kib61")]

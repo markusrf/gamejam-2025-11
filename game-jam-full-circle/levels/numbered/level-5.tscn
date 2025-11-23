@@ -1,20 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dslfndt5qffl8"]
+[gd_scene load_steps=5 format=3 uid="uid://cvagjywpjwhin"]
 
 [ext_resource type="PackedScene" uid="uid://h1wklqb34osx" path="res://player/player.tscn" id="1_0ybr7"]
 [ext_resource type="PackedScene" uid="uid://q5l8bxt246nv" path="res://interactible/eatables/small_eatable.tscn" id="1_icy0r"]
 [ext_resource type="PackedScene" uid="uid://l10v7def3slf" path="res://interactible/eatable_gold.tscn" id="3_tb20a"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_icy0r"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_tb20a"]
-sky_material = SubResource("ProceduralSkyMaterial_icy0r")
-
-[sub_resource type="Environment" id="Environment_6ii4a"]
-background_mode = 2
-sky = SubResource("Sky_tb20a")
-tonemap_mode = 2
+[ext_resource type="PackedScene" uid="uid://bltblbbvqd1la" path="res://environment.tscn" id="4_maim4"]
 
 [node name="Bridges" type="Node3D"]
 
@@ -30,19 +19,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7851005, -2.5545127, 17.758
 [node name="SmallEatable4" parent="." instance=ExtResource("1_icy0r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4886513, -1.7712021, 17.7584)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_6ii4a")
-
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3635254, -6.848999, -1.6115723)
-size = Vector3(9.596191, 14.697998, 7.5063477)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3635254, -9.699402, -1.6115723)
+size = Vector3(9.596191, 20.398804, 7.5063477)
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.4979396, 3.0659626)
@@ -136,3 +118,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4050648, 0)
 
 [node name="Eatable_Gold" parent="." instance=ExtResource("3_tb20a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.311093, -14.735758, 29.212463)
+
+[node name="Environment" parent="." instance=ExtResource("4_maim4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.428268, 0)

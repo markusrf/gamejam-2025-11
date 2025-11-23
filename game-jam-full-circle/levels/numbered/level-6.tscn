@@ -1,22 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://v687jaodw4rj"]
+[gd_scene load_steps=5 format=3 uid="uid://bg2n01f1hjrx7"]
 
 [ext_resource type="PackedScene" uid="uid://q5l8bxt246nv" path="res://interactible/eatables/small_eatable.tscn" id="1_5yqu0"]
 [ext_resource type="PackedScene" uid="uid://h1wklqb34osx" path="res://player/player.tscn" id="2_a8dql"]
 [ext_resource type="PackedScene" uid="uid://l10v7def3slf" path="res://interactible/eatable_gold.tscn" id="3_a8dql"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5yqu0"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_3fp6m"]
-sky_material = SubResource("ProceduralSkyMaterial_5yqu0")
-
-[sub_resource type="Environment" id="Environment_a8dql"]
-background_mode = 2
-sky = SubResource("Sky_3fp6m")
-tonemap_mode = 2
-glow_enabled = true
-glow_intensity = 8.0
+[ext_resource type="PackedScene" uid="uid://bltblbbvqd1la" path="res://environment.tscn" id="4_bcvpv"]
 
 [node name="LayinPipe" type="Node3D"]
 
@@ -117,12 +104,8 @@ transform = Transform3D(0.987016, 0, -0.16062206, 0, 1, 0, 0.16062206, 0, 0.9870
 [node name="Player" parent="." instance=ExtResource("2_a8dql")]
 transform = Transform3D(0.14953548, 0, 0.98875636, 0, 1, 0, -0.98875636, 0, 0.14953548, 0, 2.4999998, 0)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 6.281089, 11.758331, -2.8791645)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_a8dql")
-
 [node name="Eatable" parent="." instance=ExtResource("3_a8dql")]
 transform = Transform3D(0.9666448, -0.25612065, 0, 0.25612065, 0.9666448, 0, 0, 0, 1, 10.114698, -21.883049, -15.366306)
+
+[node name="Environment" parent="." instance=ExtResource("4_bcvpv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -27.203905, 0)
