@@ -4,6 +4,7 @@ var players: Array[AudioStreamPlayer] = []
 var loop_length: float
 var last_position: float = 0.0
 var scheduled_actions: Array = []
+var loop_timer: Timer
 
 func _ready():
 	loop_length = $MusicTracks/Lead1.stream.get_length()
@@ -14,6 +15,13 @@ func _ready():
 			child.stream_paused = true
 			child.volume_db = -80
 
+	loop_timer = Timer.new()
+	loop_timer.wait_time = loop_length
+	loop_timer.autostart = true
+	loop_timer.one_shot = false
+	loop_timer.timeout.connect(on_loop_point)
+	add_child(loop_timer)
+
 	play_all()
 	init_music()
 
@@ -21,14 +29,14 @@ func _process(delta):
 	if players.is_empty():
 		return
 
-	# All stems are identical duration, so pick the first one
-	var pos := players[0].get_playback_position()
+	## All stems are identical duration, so pick the first one
+	#var pos := players[0].get_playback_position()
+#
+	## If wrapping around (pos < last_position), the loop restarted
+	#if pos < last_position:
+		#on_loop_point()
 
-	# If wrapping around (pos < last_position), the loop restarted
-	if pos < last_position:
-		on_loop_point()
-
-	last_position = pos
+	#last_position = pos
 
 
 
