@@ -10,8 +10,11 @@ var player_size: float = 1.0
 @onready var smoke: Node3D = $Smoke
 @onready var you_won: Node2D = $"../YouWon"
 
+signal size_changed(player_size: float)
+
 
 var win: bool = false
+
 
 func _ready():
 	area_3d.connect("body_entered", _on_body_entered)
@@ -84,6 +87,7 @@ func set_size() -> void:
 	
 	for child in get_children():
 		child.scale = newVector
+	emit_signal("size_changed", player_size)
 
 func jump(shrink: float):
 	smoke.visible = true
