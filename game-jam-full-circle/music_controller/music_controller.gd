@@ -1,126 +1,176 @@
 extends Node
 
 var players: Array[AudioStreamPlayer] = []
-var loop_length: float
+var loop_length: float = 0.0
 var last_position: float = 0.0
 var scheduled_actions: Array = []
+var audio_started := false
+
 
 func _ready():
-	loop_length = $MusicTracks/Lead1.stream.get_length()
-	# Collect all players automatically
+	# Collect all AudioStreamPlayers
 	for child in $MusicTracks.get_children():
 		if child is AudioStreamPlayer:
-			players.append(child)
-			child.stream_paused = true
-			child.volume_db = -80
+			var p := child as AudioStreamPlayer
+			players.append(p)
+			p.volume_db = -80.0  # muted start
 
-	play_all()
-	init_music()
-
-func _process(delta):
 	if players.is_empty():
+		push_warning("No AudioStreamPlayers found under MusicTracks.")
 		return
 
-	# All stems are identical duration, so pick the first one
+	loop_length = players[0].stream.get_length()
+
+	print("Music initialized. Waiting for user interaction to start.")
+	# ⚠️ DO NOT PLAY AUDIO YET (HTML5 AUTOPLAY BLOCK)
+
+
+func _input(event):
+	# Start audio only after user interaction (HTML5 requirement)
+	if not audio_started and (event is InputEventMouseButton or event is InputEventKey):
+		audio_started = true
+		play_all()
+		init_music()
+		print("Music started!")
+
+
+func _process(delta):
+	if not audio_started or players.is_empty():
+		return
+	
 	var pos := players[0].get_playback_position()
 
-	# If wrapping around (pos < last_position), the loop restarted
-	if pos < last_position:
+	if pos < last_position:  # Loop wrapped
 		on_loop_point()
 
 	last_position = pos
 
 
 
-
-### Core audio functions for controlling the music
+### --------------
+### LOOP PROCESSING
+### --------------
 
 func on_loop_point():
-	# This function is called on the first frame that hapens
-	# after the music has looped
-	print_debug("processing scheduled events: ", scheduled_actions.size())
 	for action in scheduled_actions:
 		action.call()
 	scheduled_actions.clear()
 
-func get_audio_node(_name: String):
-	return $MusicTracks.get_node(_name)
+
+
+### --------------
+### HELPERS
+### --------------
+
+func get_audio_node(name_: String) -> AudioStreamPlayer:
+	return $MusicTracks.get_node(name_) as AudioStreamPlayer
+
+
+
+### ---------------------------------------------------
+### LOOP-SYNCHRONIZED AUDIO COMMANDS (SAFE FOR WEB)
+### ---------------------------------------------------
 
 func play_instrument_next_loop(instrument_name: String):
 	scheduled_actions.append(func():
-		get_audio_node(instrument_name).volume_db = 0.0
+		var p := get_audio_node(instrument_name)
+		p.volume_db = 0.0
 	)
+
 
 func mute_instrument_next_loop(instrument_name: String):
 	scheduled_actions.append(func():
-		get_audio_node(instrument_name).volume_db = -80.0
+		var p := get_audio_node(instrument_name)
+		p.volume_db = -80.0
 	)
 
-func fade_in_instrument_next_loop(instrument_name: String, duration: float = 1.0) -> void:
-	scheduled_actions.append(func ():
-		var p := get_audio_node(instrument_name) as AudioStreamPlayer
-		# make sure it's playing and muted
+
+func fade_in_instrument_next_loop(instrument_name: String, duration: float = 1.0):
+	scheduled_actions.append(func():
+		var p := get_audio_node(instrument_name)
 		if not p.playing:
-			p.play(0)
-			p.stream_paused = false
+			p.play()
 		fade_in(p, duration)
 	)
 
-func fade_out_instrument_next_loop(instrument_name: String, duration: float = 1.0) -> void:
-	scheduled_actions.append(func ():
-		var p := get_audio_node(instrument_name) as AudioStreamPlayer
-		# make sure it's playing and muted
+
+func fade_out_instrument_next_loop(instrument_name: String, duration: float = 1.0):
+	scheduled_actions.append(func():
+		var p := get_audio_node(instrument_name)
 		if not p.playing:
-			p.play(0)
-			p.stream_paused = false
+			p.play()
 		fade_out(p, duration)
 	)
 
+
+
+### --------------
+### CORE CONTROLS
+### --------------
+
 func play_all():
-	# Ensure all players start on the **same audio frame**
+	# Start all stems EXACTLY in sync using WebAudio-safe time scheduling
+	var start_time := AudioServer.get_time_to_next_mix()
+
 	for p in players:
-		p.stream_paused = false
-		p.play()
+		p.volume_db = -80.0
+		p.play(start_time)
+
+	last_position = 0.0
+
 
 func stop_all():
 	for p in players:
 		p.stop()
 
+
 func mute_all():
 	for p in players:
 		p.volume_db = -80.0
 
+
 func mute_all_next_loop():
 	for p in players:
+		var pp := p  # capture local reference
 		scheduled_actions.append(func():
-			p.volume_db = -80.0
+			pp.volume_db = -80.0
 		)
 
+
 func set_instrument_volume(name_: String, volume_db: float):
-	var p = get_audio_node(name_)
+	var p := get_audio_node(name_)
 	p.volume_db = volume_db
 
-func fade_in(player: AudioStreamPlayer, duration: float = 1.0) -> void:
+
+
+### --------------
+### FADES
+### --------------
+
+func fade_in(player: AudioStreamPlayer, duration: float = 1.0):
 	var tween := create_tween()
 	tween.tween_property(player, "volume_db", 0.0, duration)
 
 
-func fade_out(player: AudioStreamPlayer, duration: float = 1.0) -> void:
+func fade_out(player: AudioStreamPlayer, duration: float = 1.0):
 	var tween := create_tween()
 	tween.tween_property(player, "volume_db", -80.0, duration)
 
 
 
-
-
-### Game logic functions affecting the music
+### --------------------
+### GAME → MUSIC LOGIC
+### --------------------
 
 func init_music():
 	set_instrument_volume("Shaker1", 0)
 	set_instrument_volume("Shaker2", 0)
 
+
 func player_size_changed(new_size):
+	# Reset everything each loop
 	mute_all_next_loop()
+
 	play_instrument_next_loop("Shaker1")
 	play_instrument_next_loop("Shaker2")
 
