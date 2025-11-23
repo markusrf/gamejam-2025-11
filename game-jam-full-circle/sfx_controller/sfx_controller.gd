@@ -1,14 +1,10 @@
 extends Node
 
-@onready var jump: AudioStreamPlayer = $SFX/Jump
-@onready var button: AudioStreamPlayer = $SFX/Button
-@onready var eat: AudioStreamPlayer = $SFX/Eat
-@onready var stretch: AudioStreamPlayer = $SFX/Stretch
-@onready var fly_death: AudioStreamPlayer = $SFX/FlyDeat
-
 var jump_players: Array
 var is_jumping: bool
 var current_jump_player: String
+var current_jump_tweener: Tween
+var current_fly_death_tweener: Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,6 +14,7 @@ func _ready() -> void:
 	for child in $SFX.get_children():
 		if child is AudioStreamPlayer:
 			child.stream_paused = true
+			child.volume_db = -80.0
 			if "Jump" in child.name:
 				jump_players.append(child.name)
 
@@ -40,14 +37,14 @@ func _stop(player: String):
 func _fade_in(player: String, duration: float = 1.0) -> void:
 	var tweener = create_tween()
 	var p = _get_audio_node(player)
-	p.volume_db = -80.0
 	tweener.tween_property(p, "volume_db", 0.0, duration)
 
-func _fade_out(player: String, duration: float = 1.0) -> void:
+func _fade_out(player: String, duration: float = 1.0) -> Tween:
 	var tweener = create_tween()
 	var p = _get_audio_node(player)
-	p.volume_db = 0.0
 	tweener.tween_property(p, "volume_db", -80.0, duration)
+	tweener.finished.connect(func(): p.stop())
+	return tweener
 
 
 
@@ -62,19 +59,33 @@ func start_jump():
 	var player = jump_players.pick_random()
 	current_jump_player = player
 	is_jumping = true
+	if current_jump_tweener and current_jump_tweener.is_valid():
+		_stop(player)
+		current_jump_tweener.kill()
 	_play(player)
 
 func stop_jump():
 	if is_jumping:
 		print("SFX: stop jump")
 		is_jumping = false
-		_fade_out(current_jump_player, 1.0)
+		current_jump_tweener = _fade_out(current_jump_player, 0.6)
 
 func eat_fly():
 	print("SFX: eat fly")
+	var player = "FlyDeath"
+	if (randf() > 0.5):
+		_play("Stretch")
+	else:
+		_play("Eat")
+	if current_fly_death_tweener and current_fly_death_tweener.is_valid():
+		_stop(player)
+		current_fly_death_tweener.kill()
+	_play(player)
+	current_fly_death_tweener = _fade_out(player, 2.0)
 
 func press_button():
 	print("SFX: pressed button")
+	_play("Button")
 
 func win():
 	print("SFX: win")
