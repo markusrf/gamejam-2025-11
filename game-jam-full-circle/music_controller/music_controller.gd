@@ -43,8 +43,8 @@ func on_loop_point():
 		action.call()
 	scheduled_actions.clear()
 
-func get_audio_node(name: String):
-	return $MusicTracks.get_node(name)
+func get_audio_node(_name: String):
+	return $MusicTracks.get_node(_name)
 
 func play_instrument_next_loop(instrument_name: String):
 	scheduled_actions.append(func():
@@ -96,8 +96,8 @@ func mute_all_next_loop():
 			p.volume_db = -80.0
 		)
 
-func set_instrument_volume(name: String, volume_db: float):
-	var p = get_audio_node(name)
+func set_instrument_volume(name_: String, volume_db: float):
+	var p = get_audio_node(name_)
 	p.volume_db = volume_db
 
 func fade_in(player: AudioStreamPlayer, duration: float = 1.0) -> void:
