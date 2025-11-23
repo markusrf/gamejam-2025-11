@@ -47,9 +47,11 @@ func _physics_process(_delta: float) -> void:
 	smoke.visible = false
 	if Input.is_action_pressed("jump"):
 		if(player_size > 1.5):
+			if Input.is_action_just_pressed("jump"):
+				SfxController.start_jump()
 			jump(0.1)
-	if Input.is_action_just_pressed("jump"):
-		SfxController.start_jump()
+		else:
+			SfxController.stop_jump()
 	if Input.is_action_just_released("jump"):
 		SfxController.stop_jump()
 	

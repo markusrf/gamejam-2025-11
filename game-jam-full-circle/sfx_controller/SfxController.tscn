@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://diciutyn4x00l"]
+[gd_scene load_steps=24 format=3 uid="uid://diciutyn4x00l"]
 
 [ext_resource type="Script" uid="uid://dk5e5dryw5031" path="res://sfx_controller/sfx_controller.gd" id="1_1tct0"]
 [ext_resource type="AudioStream" uid="uid://dcey5nvi0qm6k" path="res://assets/audio/sfx/jump-1.wav" id="2_6q72b"]
@@ -19,12 +19,6 @@
 [ext_resource type="AudioStream" uid="uid://cgg8f6c04w7t8" path="res://assets/audio/sfx/fly-death-1.wav" id="17_vm8m6"]
 [ext_resource type="AudioStream" uid="uid://13cswanou6pn" path="res://assets/audio/sfx/fly-death-2.wav" id="18_cov2r"]
 [ext_resource type="AudioStream" uid="uid://m4byu3cmfph8" path="res://assets/audio/sfx/fly-death-3.wav" id="19_q64ha"]
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3p2id"]
-streams_count = 3
-stream_0/stream = ExtResource("2_6q72b")
-stream_1/stream = ExtResource("3_v6807")
-stream_2/stream = ExtResource("4_qqwu8")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_q4yfs"]
 random_pitch = 1.2
@@ -66,10 +60,6 @@ script = ExtResource("1_1tct0")
 
 [node name="SFX" type="Node" parent="."]
 
-[node name="Jump" type="AudioStreamPlayer" parent="SFX"]
-stream = SubResource("AudioStreamRandomizer_3p2id")
-bus = &"SFX"
-
 [node name="Button" type="AudioStreamPlayer" parent="SFX"]
 stream = SubResource("AudioStreamRandomizer_q4yfs")
 bus = &"SFX"
@@ -85,3 +75,15 @@ bus = &"SFX"
 [node name="FlyDeath" type="AudioStreamPlayer" parent="SFX"]
 stream = SubResource("AudioStreamRandomizer_ixd3j")
 bus = &"SFX"
+
+[node name="Jump1" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("2_6q72b")
+bus = &"Jump1"
+
+[node name="Jump2" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_v6807")
+bus = &"Jump2"
+
+[node name="Jump3" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_qqwu8")
+bus = &"Jump3"
