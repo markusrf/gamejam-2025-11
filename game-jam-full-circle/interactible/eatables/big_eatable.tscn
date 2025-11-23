@@ -5,5 +5,6 @@
 [node name="BigEatable" type="Node3D"]
 
 [node name="Eatable" parent="." instance=ExtResource("1_3dlpc")]
+gravity_scale = 0.0
 eat_value = 25.0
 newScale = 5.0
