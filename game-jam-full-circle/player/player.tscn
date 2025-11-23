@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bssh2lyga363e" path="res://player/camera_rig.gd" id="2_4idhk"]
 [ext_resource type="PhysicsMaterial" uid="uid://clx3m07wn12vw" path="res://player/frog_material.tres" id="2_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://d37ukitu5hgms" path="res://ui/you_won.tscn" id="2_qjkh3"]
-[ext_resource type="Script" path="res://player/polygon_2d.gd" id="6_g6k8r"]
+[ext_resource type="Script" uid="uid://dbrep0rr7gixb" path="res://player/polygon_2d.gd" id="6_g6k8r"]
 [ext_resource type="PackedScene" uid="uid://ce6slkclwox3w" path="res://ui/spacebar_ui.tscn" id="7_boad6"]
 
 [node name="Player" type="Node3D"]
