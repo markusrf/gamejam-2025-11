@@ -20,8 +20,8 @@
     - [x] start menu
     - [x] show controls on start menu
     - [ ] restart button
-    - [ ] display score / mass
-    - [ ] win state
+    - [x] display score / mass
+    - [x] win state
 - [x] test upload to itch.io
 
 ### Extras

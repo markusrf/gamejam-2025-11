@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://hxne5v564mpd"]
 
 [ext_resource type="PackedScene" uid="uid://h1wklqb34osx" path="res://player/player.tscn" id="1_cwrp7"]
-[ext_resource type="PackedScene" uid="uid://bpaa2ub1y32gm" path="res://interactible/eatable_box.tscn" id="2_mqhgk"]
+[ext_resource type="PackedScene" uid="uid://bpaa2ub1y32gm" path="res://interactible/eatables/eatable_box.tscn" id="2_mqhgk"]
 [ext_resource type="PackedScene" uid="uid://l10v7def3slf" path="res://interactible/eatable_gold.tscn" id="3_31ytq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3nbbt"]
@@ -73,8 +73,5 @@ size = Vector3(34.05945, 693.69, 50.144684)
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -9.771255e-08, -5.46941, 36.177166)
 size = Vector3(13, 75.811646, 10.776855)
 
-[node name="Eatable2" parent="." instance=ExtResource("3_31ytq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.60836, -63.368607)
-gravity_scale = 0.0
-eat_value = 100.0
-newScale = 3.0
+[node name="Eatable_Gold" parent="." instance=ExtResource("3_31ytq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20591906, 15.504962, -63.10146)
