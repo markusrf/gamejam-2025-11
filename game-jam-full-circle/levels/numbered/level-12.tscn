@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxxbmkm4ns5k8"]
+[gd_scene load_steps=5 format=3 uid="uid://di5pmul24ha1l"]
 
 [ext_resource type="PackedScene" uid="uid://q5l8bxt246nv" path="res://interactible/eatables/small_eatable.tscn" id="1_tx6qw"]
-[ext_resource type="PackedScene" uid="uid://bigtphhx1swvk" path="res://player/player-hard.tscn" id="3_2rvut"]
+[ext_resource type="PackedScene" path="res://player/player-hard.tscn" id="3_2rvut"]
 [ext_resource type="PackedScene" uid="uid://l10v7def3slf" path="res://interactible/eatable_gold.tscn" id="3_fo8wh"]
 [ext_resource type="PackedScene" uid="uid://bltblbbvqd1la" path="res://environment.tscn" id="4_6yasm"]
 
@@ -115,7 +115,6 @@ outer_radius = 2.39
 
 [node name="Eatable_Gold" parent="." instance=ExtResource("3_fo8wh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.311093, -14.735758, 29.212463)
-eat_value = 1.0
 
 [node name="Player2" parent="." instance=ExtResource("3_2rvut")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4197044, 0)

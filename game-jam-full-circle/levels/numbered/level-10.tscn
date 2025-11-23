@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c46vq38g8afwn"]
+[gd_scene load_steps=6 format=3 uid="uid://cflh740vy6q2x"]
 
-[ext_resource type="PackedScene" uid="uid://bigtphhx1swvk" path="res://player/player-hard.tscn" id="1_ei3gf"]
+[ext_resource type="PackedScene" path="res://player/player-hard.tscn" id="1_ei3gf"]
 [ext_resource type="PackedScene" uid="uid://bpaa2ub1y32gm" path="res://interactible/eatables/eatable_box.tscn" id="1_jtip2"]
 [ext_resource type="PackedScene" uid="uid://l10v7def3slf" path="res://interactible/eatable_gold.tscn" id="3_kib61"]
 [ext_resource type="PackedScene" uid="uid://bltblbbvqd1la" path="res://environment.tscn" id="4_jtip2"]
