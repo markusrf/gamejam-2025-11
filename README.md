@@ -1,5 +1,8 @@
 # gamejam-2025-11
 
+- Game on itch.io - https://martinstoro2.itch.io/star-frogx
+- Game jam - https://itch.io/jam/bouvet-nord-game-jam-2025-2/entries
+
 ### Most important
 - [x] combine and refactor code
 - [x] create a test level
